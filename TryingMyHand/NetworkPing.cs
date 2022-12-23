@@ -1,12 +1,10 @@
 ﻿
-/*
-
 using System.Net.NetworkInformation;
 using System.Text;
 
-internal class NetworkPing
+public class NetworkPing
 {
-    public static void Main(string[] args)
+    public void Pinging()
     {
         //Pinging Google DNS Server 4.2.2.2
 
@@ -29,11 +27,5 @@ internal class NetworkPing
                 Console.WriteLine("Time to live: {0}", reply.Options.Ttl);
                 Console.WriteLine("Buffer size: {0}", reply.Buffer.Length);
             }
-
-
-        Console.WriteLine("Press any key to exit.");
-        Console.ReadLine();
     }
 }
-
-*/
