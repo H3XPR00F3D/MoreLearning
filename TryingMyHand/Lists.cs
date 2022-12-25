@@ -14,7 +14,7 @@ namespace MoreLearning
         {
             List<App> lst = new List<App>();
 
-            lst.Add(new App{ AppName = "GuessingGame", AppID = 1 });
+            lst.Add(new App{ AppName = "Guessing Game", AppID = 1 });
             lst.Add(new App { AppName = "Network Pinger", AppID = 2 });
             lst.Add(new App { AppName = "Fibonacci Sequence", AppID = 3 });
             lst.Add(new App { AppName = "Count Down", AppID = 4 });

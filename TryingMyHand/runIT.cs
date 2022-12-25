@@ -39,26 +39,31 @@ namespace MoreLearning
                 {
                     GuessingGame g = new GuessingGame();
                     g.Game();
+                    Run();
                 }
                 else if (choice == 2)
                 {
                     NetworkPing n = new NetworkPing();
                     n.Pinging();
+                    Run();
                 }
                 else if (choice == 3)
                 {
                     Fibo f = new Fibo();
                     f.Sequence();
+                    Run();
                 }
                 else if (choice == 4)
                 {
                     CountDown c = new CountDown();
                     c.Count();
+                    Run();
                 }
                 else if (choice == 5)
                 {
                     Bank b = new Bank();
                     b.RunBank();
+                    Run();
                 }
                 else if (choice == 9)
                 {
