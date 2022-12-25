@@ -1,4 +1,4 @@
-﻿/*
+﻿
 
 using System;
 using System.Collections.Generic;
@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoreLearning.Curriculum
+namespace MoreLearning
 {
     public class CountDown
     {
-        public static void Main(string[] args)
+        public  void Count()
         {
             string name;
             int age;
@@ -33,4 +33,3 @@ namespace MoreLearning.Curriculum
     }
 }
 
-*/
