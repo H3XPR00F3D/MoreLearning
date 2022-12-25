@@ -10,7 +10,7 @@ namespace MoreLearning
 {
     public class CountDown
     {
-        public  void Count()
+        public static void Count()
         {
             string name;
             int age;

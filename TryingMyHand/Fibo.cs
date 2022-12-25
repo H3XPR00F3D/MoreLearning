@@ -10,7 +10,7 @@ namespace MoreLearning
     {
 
 
-        public void Sequence()
+        public static void Sequence()
         {
 
             int fib1;

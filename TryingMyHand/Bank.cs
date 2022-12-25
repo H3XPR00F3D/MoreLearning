@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 
 /*
@@ -37,6 +38,7 @@ public class Bank
         if(actions == 1)
         {
            Display();
+           RunBank();
         }
         else if(actions ==2)
         {
@@ -65,15 +67,15 @@ public class Bank
 
 
         Console.WriteLine("You have Deposited ");
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.Green;// changes font color
+        Console.ForegroundColor = ConsoleColor.Black;// changes font color
         Console.Write(amtDpt);
-        Console.ResetColor();
+        Console.ResetColor();// resets font color
         Console.Write(". Your new balance is ");
-        Console.BackgroundColor = ConsoleColor.Green;
-        Console.ForegroundColor = ConsoleColor.Black;
+        Console.BackgroundColor = ConsoleColor.Green;// changes font color
+        Console.ForegroundColor = ConsoleColor.Black;// changes font color
         Console.Write(newBal.balance);
-        Console.ResetColor();
+        Console.ResetColor();// resets font color
         Console.WriteLine();
         Console.WriteLine();
         balance = newBal.balance;
@@ -94,15 +96,15 @@ public class Bank
         {
             newBal.balance = balance -  amtWthdw;
             Console.WriteLine("You have Withdrawn ");
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Green;// changes font color
+            Console.ForegroundColor = ConsoleColor.Black;// changes font color
             Console.Write(amtWthdw);
-            Console.ResetColor();
+            Console.ResetColor();// resets font color
             Console.Write(". Your new balance is ");
-            Console.BackgroundColor = ConsoleColor.Green;
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Green;// changes font color
+            Console.ForegroundColor = ConsoleColor.Black;// changes font color
             Console.Write(newBal.balance);
-            Console.ResetColor();
+            Console.ResetColor();// resets font color
             Console.WriteLine() ;
             Console.WriteLine();
             balance= newBal.balance;
@@ -111,37 +113,46 @@ public class Bank
         }
             else if (amtWthdw > balance)
         {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Black;
+            Console.BackgroundColor = ConsoleColor.Red;// changes font color
+            Console.ForegroundColor = ConsoleColor.Black;// changes font color
             Console.WriteLine("You do not have enough in your account.");
-            Console.ResetColor();
-            return balance;
+            Console.ResetColor();// resets font color
+
+            return balance;//returns balance as it  was at start of statment
         }
             else
         {
-            Console.BackgroundColor = ConsoleColor.Red;
-            Console.ForegroundColor = ConsoleColor.Black;
-            Console.WriteLine("There was an error");
-            Console.ResetColor();
-            return balance;
+            
+            Console.BackgroundColor = ConsoleColor.Red; // changes font color
+            Console.ForegroundColor = ConsoleColor.Black; //changes font color 
+            Console.WriteLine("There was an error");//produces error message
+            Console.ResetColor();// resets font color
+
+            return balance; //returns balance as it  was at start of statment
         }
    }
         
 
-
+    //displays current balance
         public void Display()
         {
+        //printing balance out
             Console.WriteLine();
             Console.WriteLine("Your Balance is ");
+        //changes font color
             Console.BackgroundColor= ConsoleColor.Green;
-            Console.ForegroundColor= ConsoleColor.Black;          
-            Console.WriteLine(balance);
-            Console.ResetColor();
-            Console.WriteLine() ;
-            Console.WriteLine("Press any key to return to the Bank menu.");
-            Console.ResetColor();
-            RunBank();
-        }
+            Console.ForegroundColor= ConsoleColor.Black;    
+        //prints balance valus
+            Console.Write(balance);
+            Console.ResetColor();// resets font color
+        Console.WriteLine() ;
+        //ends method
+            Console.ResetColor();// resets font color
+    }
 
 
     }
+
+
+
+

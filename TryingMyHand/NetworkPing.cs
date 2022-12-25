@@ -4,7 +4,7 @@ using System.Text;
 
 public class NetworkPing
 {
-    public void Pinging()
+    public static void Pinging()
     {
         //Pinging Google DNS Server 4.2.2.2
 

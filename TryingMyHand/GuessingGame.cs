@@ -9,13 +9,13 @@ namespace MoreLearning
 {
     public class GuessingGame
     {
-        public void Game() 
+        public static void Game() 
         {
             //Variables being used
             int max;
             int min;
-            int guess =1;
-            Random random= new Random();
+            int guess;
+            Random random= new();
             
 
             //Prompts user to the game
