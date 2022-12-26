@@ -91,6 +91,12 @@ namespace MoreLearning
                     PongGame.RunGame();
                     Run();
                 }
+                else if (choice == 7)
+                {
+                    Console.Clear();
+                    NumArray.RunArray();
+                    Run();
+                }
                 else if (choice == 9)
                 {
                     Console.WriteLine("Press any key to Exit");
