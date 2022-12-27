@@ -3,24 +3,32 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace MoreLearning
 {
-   public class RunIT
+    public class RunIT
     {
-        
-        public static void Main()
+
+
+
+
+public static void Main()
         {
             bool reload = true;
             while (reload == true)
             {
-                Run();
+                ProjectSelection();
             }
         }
 
-        public static void Run()
+
+
+
+        public static void ProjectSelection()
         {
             int choice = 0;
 
@@ -28,28 +36,7 @@ namespace MoreLearning
             while (choice == 0)
             {
 
-                Console.WriteLine(" _______________________________________________________________________");
-                Console.WriteLine(" |                                                                     |");
-                Console.WriteLine(" |                            PRACTICE COLLECTION                      |");
-                Console.WriteLine(" |                          C# CONSOLE APPLICATIONS                    |");
-                Console.WriteLine(" |                                                                     |");                                                                                                                   
-                Console.WriteLine(" |_____________________________________________________________________|");
-                Console.WriteLine(" |               PLEASE TYPE THE NUMBER OF THE ASSOCIATED APP YOU      |");
-                Console.WriteLine(" |                          WOULD LIKE TO TRY OUT.                     |");
-                Console.WriteLine(" |_____________________________________________________________________|");
-                Console.WriteLine(" |                                                                     |");                                                                                                                 
-                Console.WriteLine(" |                             1) GUESSING GAME                        |");
-                Console.WriteLine(" |                          2) GOOGLE NETWORK PING                     |");
-                Console.WriteLine(" |                          3) FIBONACCI SEQUENCE                      |");
-                Console.WriteLine(" |                            4) AGE COUNTDOWN                         |");
-                Console.WriteLine(" |                        5) BANK ACCOUNT SIMULATOR                    |");
-                Console.WriteLine(" |6) Pong                                                              |");
-                Console.WriteLine(" |7)                                                                   |");
-                Console.WriteLine(" |8)                                                                   |");
-                Console.WriteLine(" |                             9) EXIT PROGRAM                         |");
-                Console.WriteLine(" |                                                                     |");
-                Console.WriteLine(" |_____________________________________________________________________|");
-                Console.WriteLine();
+                UserPrompts.Prompt();
 
                 SelectionLists s = new SelectionLists();
             //    s.Apps();
@@ -57,82 +44,50 @@ namespace MoreLearning
                 Console.WriteLine();
                 choice = Convert.ToInt32(Console.ReadLine());
 
-                if (choice == 1)
+
+                switch (choice)
                 {
-                    GuessingGame.Game();
-                    Run();
+                    case 1:
+                        GuessingGame.Game();
+                        break;
+                    case 2:
+                        NetworkPing.Pinging();
+                        break;
+                    case 3:
+                        Fibo.Sequence();
+                        break;
+                    case 4:
+                        Console.Clear();
+                        CountDown.Count();
+                        break;
+                    case 5:
+                        Bank b = new Bank();
+                        b.RunBank();
+                        break;
+                    case 6:
+                        Console.Clear();
+                        PongGame.RunGame();
+                        break;
+                    case 7:
+                        Console.Clear();
+                        NumArray.RunArray();
+                        break;
+                    case 8:
+                        break;
+                    case 9:
+                        UserPrompts.ExitApp();
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        UserPrompts.Prompt();
+                        choice = 0;
+                        break;
                 }
-                else if (choice == 2)
-                { 
-                   NetworkPing.Pinging();
-                   Run();
-                }
-                else if (choice == 3)
-                {
-                   
-                    Fibo.Sequence();
-                    Run();
-                }
-                else if (choice == 4)
-                {
-                    Console.Clear();
-                    CountDown.Count();
-                    Run();
-                }
-                else if (choice == 5)
-                {
-                    Bank b = new Bank();
-                    b.RunBank();
-                    Run();
-                }
-                else if (choice == 6)
-                {
-                    Console.Clear();
-                    PongGame.RunGame();
-                    Run();
-                }
-                else if (choice == 7)
-                {
-                    Console.Clear();
-                    NumArray.RunArray();
-                    Run();
-                }
-                else if (choice == 9)
-                {
-                    Console.WriteLine("Press any key to Exit");
-                    Console.ReadLine();
-                    Environment.Exit(0);
-                }
-                else
-                {
-                    Console.WriteLine("Please make a new selection");
-                    Console.WriteLine(" _______________________________________________________________________");
-                    Console.WriteLine(" |                                                                     |");
-                    Console.WriteLine(" |                            PRACTICE COLLECTION                      |");
-                    Console.WriteLine(" |                          C# CONSOLE APPLICATIONS                    |");
-                    Console.WriteLine(" |                                                                     |");
-                    Console.WriteLine(" |_____________________________________________________________________|");
-                    Console.WriteLine(" |               PLEASE TYPE THE NUMBER OF THE ASSOCIATED APP YOU      |");
-                    Console.WriteLine(" |                          WOULD LIKE TO TRY OUT.                     |");
-                    Console.WriteLine(" |_____________________________________________________________________|");
-                    Console.WriteLine(" |                                                                     |");
-                    Console.WriteLine(" |                             1) GUESSING GAME                        |");
-                    Console.WriteLine(" |                          2) GOOGLE NETWORK PING                     |");
-                    Console.WriteLine(" |                          3) FIBONACCI SEQUENCE                      |");
-                    Console.WriteLine(" |                            4) AGE COUNTDOWN                         |");
-                    Console.WriteLine(" |                        5) BANK ACCOUNT SIMULATOR                    |");
-                    Console.WriteLine(" |6)Pong Game                                                                   |");
-                    Console.WriteLine(" |7)                                                                   |");
-                    Console.WriteLine(" |8)                                                                   |");
-                    Console.WriteLine(" |                             9) EXIT PROGRAM                         |");
-                    Console.WriteLine(" |                                                                     |");
-                    Console.WriteLine(" |_____________________________________________________________________|");
-                    Console.WriteLine();
-                    choice = 0;
                 }
             }
+        
         }
-    }
+    
 }
 
 

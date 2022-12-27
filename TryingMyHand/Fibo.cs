@@ -39,6 +39,8 @@ namespace MoreLearning
                 fib1 = fib2;
                 fib2 = seq;
             }
+
+            UserPrompts.ExitApp();
         }
 
     }
