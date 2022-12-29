@@ -6,7 +6,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoreLearning
+namespace MoreLearning.Collections
 {
     public class NumArray
     {
@@ -15,26 +15,26 @@ namespace MoreLearning
 
             string answer = "1,2,3,4,5";
             int[] ints;
-            
+
 
             var source = answer.Split(',');
             int[] cols = new int[source.Length];
-            
+
 
 
             Console.WriteLine("Please come up with 5 numbers, separated by commas. Here is an example: 5,6,7,8");
             answer = Console.ReadLine();
 
-            
 
-            for(int i = 0; i < source.Length; i++)
+
+            for (int i = 0; i < source.Length; i++)
             {
                 cols[i] = int.Parse(source[i]);
             }
 
-            int sum = (cols[0] + cols[1] + cols[2] + cols[3] + cols[4]);
+            int sum = cols[0] + cols[1] + cols[2] + cols[3] + cols[4];
 
-            
+
 
             Console.WriteLine(sum);
 

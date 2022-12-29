@@ -5,7 +5,6 @@ using System.IO;
 using CsvHelper;
 using HtmlAgilityPack;
 using MoreLearning;
-
 public class Scrapes
 {
 
@@ -18,9 +17,6 @@ public class Scrapes
 
         while (selection == 0)
         {
-
-            Console.WriteLine("Please make another choice.");
-
             Console.WriteLine();
             selection = Convert.ToInt32(Console.ReadLine());
 
@@ -35,15 +31,16 @@ public class Scrapes
                     break;
                 case 9:
                     UserPrompts.ExitApp();
-                    Environment.Exit(0);
                     break;
                 default:
-                    UserPrompts.Prompt();
+                    UserPrompts.SelectAgain();
+                    RunScrapes();
                     selection = 0;
                     break;
             }
 
-            UserPrompts.ExitApp();
+
+
 
         }
         static void Greece()

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -52,30 +53,53 @@ namespace MoreLearning
 
         public static void ScrapePrompt()
         {
-            Console.WriteLine("Please make a new selection");
+            Console.WriteLine();
             Console.WriteLine("  _____________________________________________________________________");
             Console.WriteLine(" |                                                                     |");
-            Console.WriteLine(" |                           PRACTICE COLLECTION                       |");
-            Console.WriteLine(" |                             C# WEB SCRAPERS                         |");
+            Console.WriteLine(" |                         PRACTICE COLLECTION                         |");
+            Console.WriteLine(" |                           C# WEB SCRAPERS                           |");
             Console.WriteLine(" |                                                                     |");
             Console.WriteLine(" |_____________________________________________________________________|");
-            Console.WriteLine(" |             PLEASE TYPE THE NUMBER ASSOCIATED WITH THE              |");
-            Console.WriteLine(" |                            WEB SCRAPER                              |");
+            Console.WriteLine(" |              PLEASE TYPE THE NUMBER ASSOCIATED WITH THE             |");
+            Console.WriteLine(" |                             WEB SCRAPER                             |");
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine(" |                                                                     |");
-            Console.WriteLine(" |                        1) WIKIPEDIA'S GREECE PAGE                    |");
-            Console.WriteLine(" |               2) DAUGHTERS OF KHAINE WARSCROLL                      |");
-            Console.WriteLine(" |                          3)               |");
-            Console.WriteLine(" |                            4)                          |");
-            Console.WriteLine(" |                        5)                     |");
-            Console.WriteLine(" |                                 6)                              |");
-            Console.WriteLine(" |                              7)                         |");
-            Console.WriteLine(" |                              8)                             |");
-            Console.WriteLine(" |                             9) EXIT MENU                         |");
+            Console.WriteLine(" |                    1) WIKIPEDIA'S GREECE PAGE                       |");
+            Console.WriteLine(" |                    2) DAUGHTERS OF KHAINE WARSCROLL                 |");
+            Console.WriteLine(" |                    3)                                               |");
+            Console.WriteLine(" |                    4)                                               |");
+            Console.WriteLine(" |                    5)                                               |");
+            Console.WriteLine(" |                    6)                                               |");
+            Console.WriteLine(" |                    7)                                               |");
+            Console.WriteLine(" |                    8)                                               |");
+            Console.WriteLine(" |                    9) EXIT MENU                                     |");
             Console.WriteLine(" |                                                                     |");
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine();
         }
+
+
+        public static void SelectAgain()
+        {
+            Console.Write("Please select a different option.");
+        }
+
+        public static void Disabled()
+        {
+            Console.WriteLine("The app has been temporarily disabled");
+            ExtApps.OpenPR();
+        }
+
+      
+        public static void ToCont()
+        {
+            Console.WriteLine("Press any key to continue.");
+            Console.ReadLine();
+        }
+
+        //---------------------------------------------------------------------
+        //Exit Prompts
+        //---------------------------------------------------------------------
         public static void ExitApp()
         {
             Console.WriteLine("Press any key to exit.");
@@ -86,6 +110,7 @@ namespace MoreLearning
             Console.WriteLine("Press any key to exit.");
             Console.ReadLine();
         }
+        //---------------------------------------------------------------------
     }
 
 }

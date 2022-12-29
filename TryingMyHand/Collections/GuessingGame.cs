@@ -5,18 +5,18 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MoreLearning
+namespace MoreLearning.Collections
 {
     public class GuessingGame
     {
-        public static void Game() 
+        public static void Game()
         {
             //Variables being used
             int max;
             int min;
             int guess;
-            Random random= new();
-            
+            Random random = new();
+
 
             //Prompts user to the game
             Console.WriteLine("We are going to play a guessing game. You will input two numbers of different values, I will pick a random number in between. It is your job to guess the correct number. Good Luck.");
@@ -35,18 +35,18 @@ namespace MoreLearning
             guess = Convert.ToInt32(Console.ReadLine());
 
             //do loop to check  guess against answer.
-            do 
+            do
             {
                 if (guess > max || guess < min) { Console.WriteLine("Your answer is outside the range. Please guess again."); guess = Convert.ToInt32(Console.ReadLine()); }
                 else if (guess < answer) { Console.WriteLine("Your guess is too low, try again."); guess = Convert.ToInt32(Console.ReadLine()); }
                 else if (guess > answer) { Console.WriteLine("Your guess is too high, try again."); guess = Convert.ToInt32(Console.ReadLine()); }
-               
+
             }
             while (guess != answer);
 
-            while(guess == answer)
+            while (guess == answer)
             {
-                 Console.WriteLine(); Console.WriteLine("YOU WIN!!"); Console.WriteLine();
+                Console.WriteLine(); Console.WriteLine("YOU WIN!!"); Console.WriteLine();
                 break;
             }
         }

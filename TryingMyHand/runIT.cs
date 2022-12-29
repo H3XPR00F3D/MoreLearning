@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
 using CsvHelper;
+using MoreLearning.Collections;
 
 namespace MoreLearning
 {
@@ -42,6 +43,7 @@ namespace MoreLearning
                     case 2:
                         Console.Clear();
                         NetworkPing.Pinging();
+                        UserPrompts.ToCont();
                         break;
                     case 3:
                         Console.Clear();
@@ -56,8 +58,11 @@ namespace MoreLearning
                         b.RunBank();
                         break;
                     case 6:
-                        Console.Clear();
-                        PongGame.RunGame();
+                        UserPrompts.Disabled();
+                        Console.WriteLine();
+                        choice = 0;
+                     //   Console.Clear();
+                     //   PongGame.RunGame();
                         break;
                     case 7:
                         Console.Clear();
@@ -70,6 +75,9 @@ namespace MoreLearning
                     case 9:
                         UserPrompts.ExitApp();
                         Environment.Exit(0);
+                        break;
+                    case 10:
+
                         break;
                     default:
                         UserPrompts.Prompt();
