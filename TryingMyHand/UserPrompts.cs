@@ -29,7 +29,7 @@ namespace MoreLearning
             Console.WriteLine(" |                        5) BANK ACCOUNT SIMULATOR                    |");
             Console.WriteLine(" |                                 6) Pong                             |");
             Console.WriteLine(" |                              7) Number Array                        |");
-            Console.WriteLine(" |                              8)                                     |");
+            Console.WriteLine(" |                              8) SCRAPERS                            |");
             Console.WriteLine(" |                             9) EXIT PROGRAM                         |");
             Console.WriteLine(" |                                                                     |");
             Console.WriteLine(" |_____________________________________________________________________|");
