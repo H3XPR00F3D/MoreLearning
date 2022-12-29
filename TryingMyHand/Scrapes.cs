@@ -83,7 +83,7 @@ public class Scrapes
 doc.DocumentNode.SelectNodes("//div[@class='wsWounds']");
 
             var titles = new List<Row>();
-            var stats = new List<Row>();
+            var wounds = new List<Row>();
 
             foreach (var item in UnitName)
             {
@@ -92,7 +92,7 @@ doc.DocumentNode.SelectNodes("//div[@class='wsWounds']");
 
             foreach(var item in UnitWounds)
             {
-                stats.Add(new Row { Wounds = item.InnerText });
+                wounds.Add(new Row { Wounds = item.InnerText });
             }
             using (var writer = new StreamWriter("Scraping_Results/AoS_DoK.txt"))
             using (var writer2 = new StreamWriter("Scraping_Results/AoS_DoK.csv"))
@@ -100,7 +100,9 @@ doc.DocumentNode.SelectNodes("//div[@class='wsWounds']");
 
             {
                 csv.WriteRecords(titles);
-                csv.WriteRecords(stats);
+                Console.WriteLine("Got Names");
+                csv.WriteRecords(wounds);
+                Console.WriteLine("Got Wounds");
             }
 
 
