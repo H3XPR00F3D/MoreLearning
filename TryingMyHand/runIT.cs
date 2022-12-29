@@ -7,6 +7,7 @@ using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Serialization;
+using CsvHelper;
 
 namespace MoreLearning
 {
@@ -73,6 +74,8 @@ public static void Main()
                         NumArray.RunArray();
                         break;
                     case 8:
+                        Console.Clear();
+                        Scrapes.RunScrapes();
                         break;
                     case 9:
                         UserPrompts.ExitApp();
