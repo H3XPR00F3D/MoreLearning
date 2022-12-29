@@ -52,16 +52,28 @@ namespace MoreLearning
 
         public static void ScrapePrompt()
         {
-            Console.WriteLine("Which scraper would you like to activate? Please type the correct number.");
-            Console.WriteLine("1) Wikipedia's Greece page");
-            Console.WriteLine("2) Age of Sigmar: Daughters of Khaine Warscrolls");
-            Console.WriteLine("3)");
-            Console.WriteLine("4)");
-            Console.WriteLine("5)");
-            Console.WriteLine("6)");
-            Console.WriteLine("7)");
-            Console.WriteLine("8)");
-            Console.WriteLine("9) Exit");
+            Console.WriteLine("Please make a new selection");
+            Console.WriteLine("  _____________________________________________________________________");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |                           PRACTICE COLLECTION                       |");
+            Console.WriteLine(" |                             C# WEB SCRAPERS                         |");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |_____________________________________________________________________|");
+            Console.WriteLine(" |             PLEASE TYPE THE NUMBER ASSOCIATED WITH THE              |");
+            Console.WriteLine(" |                            WEB SCRAPER                              |");
+            Console.WriteLine(" |_____________________________________________________________________|");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |                        1) WIKIPEDIA'S GREECE PAGE                    |");
+            Console.WriteLine(" |               2) DAUGHTERS OF KHAINE WARSCROLL                      |");
+            Console.WriteLine(" |                          3)               |");
+            Console.WriteLine(" |                            4)                          |");
+            Console.WriteLine(" |                        5)                     |");
+            Console.WriteLine(" |                                 6)                              |");
+            Console.WriteLine(" |                              7)                         |");
+            Console.WriteLine(" |                              8)                             |");
+            Console.WriteLine(" |                             9) EXIT MENU                         |");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine();
         }
         public static void ExitApp()

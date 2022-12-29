@@ -21,7 +21,7 @@ public class Bank
     private double amtDpt;
  
 
-    public void RunBank()
+    public  void RunBank()
         {
         Console.WriteLine();
         Console.WriteLine();

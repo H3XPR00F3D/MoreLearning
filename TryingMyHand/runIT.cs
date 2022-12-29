@@ -13,11 +13,7 @@ namespace MoreLearning
 {
     public class RunIT
     {
-
-
-
-
-public static void Main()
+        public static void Main()
         {
             bool reload = true;
             while (reload == true)
@@ -25,23 +21,14 @@ public static void Main()
                 ProjectSelection();
             }
         }
-
-
-
-
         public static void ProjectSelection()
         {
             int choice = 0;
 
-
             while (choice == 0)
             {
-
                 UserPrompts.Prompt();
-
                 SelectionLists s = new SelectionLists();
-            //    s.Apps();
-
                 Console.WriteLine();
                 choice = Convert.ToInt32(Console.ReadLine());
 
@@ -49,12 +36,15 @@ public static void Main()
                 switch (choice)
                 {
                     case 1:
+                        Console.Clear();
                         GuessingGame.Game();
                         break;
                     case 2:
+                        Console.Clear();
                         NetworkPing.Pinging();
                         break;
                     case 3:
+                        Console.Clear();
                         Fibo.Sequence();
                         break;
                     case 4:
@@ -86,11 +76,9 @@ public static void Main()
                         choice = 0;
                         break;
                 }
-                }
-            }
-        
+             }
         }
-    
+    }
 }
 
 
