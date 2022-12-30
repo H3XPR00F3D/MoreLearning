@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace MoreLearning.Dungeon
 {
-    internal class Engine
+    public class Engine
     {
+
     }
 }
