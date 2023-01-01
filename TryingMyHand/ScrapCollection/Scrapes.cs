@@ -1,16 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.IO;
-using CsvHelper;
+﻿using CsvHelper;
 using HtmlAgilityPack;
 using MoreLearning;
+using System.Globalization;
 public class Scrapes
 {
 
     public static void RunScrapes()
     {
-        int selection=0;
+        int selection = 0;
 
         UserPrompts.ScrapePrompt();
 
@@ -65,7 +62,7 @@ public class Scrapes
                 csv.WriteRecords(titles);
             }
 
-         
+
         }
 
         static void AoS_DoK()
@@ -87,7 +84,7 @@ doc.DocumentNode.SelectNodes("//div[@class='wsWounds']");
                 titles.Add(new Row { Title = item.InnerText });
             }
 
-            foreach(var item in UnitWounds)
+            foreach (var item in UnitWounds)
             {
                 wounds.Add(new Row { Wounds = item.InnerText });
             }

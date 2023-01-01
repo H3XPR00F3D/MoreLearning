@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MoreLearning.Pong
+﻿namespace MoreLearning.Pong
 {
     public class PongGame
     {
@@ -20,7 +14,7 @@ namespace MoreLearning.Pong
             int leftRacketHeight = 0;
             int rightRacketHeight = 0;
 
-            while(true)
+            while (true)
             {
                 Console.SetCursorPosition(0, 0);
                 Console.WriteLine(line);
@@ -28,13 +22,13 @@ namespace MoreLearning.Pong
                 Console.SetCursorPosition(0, fieldWidth);
                 Console.WriteLine(line);
 
-                for (int i=0;1<racketLength;i++)
+                for (int i = 0; 1 < racketLength; i++)
                 {
 
 
-                    Console.SetCursorPosition(0,i+1+leftRacketHeight);
+                    Console.SetCursorPosition(0, i + 1 + leftRacketHeight);
                     Console.WriteLine(racketTile);
-                    Console.SetCursorPosition(fieldLength-1, i+1+rightRacketHeight);
+                    Console.SetCursorPosition(fieldLength - 1, i + 1 + rightRacketHeight);
                     Console.WriteLine(racketTile);
                 }
             }
