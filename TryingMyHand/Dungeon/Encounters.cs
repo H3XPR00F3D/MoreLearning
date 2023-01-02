@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MoreLearning.Dungeon
 {
@@ -21,7 +17,7 @@ namespace MoreLearning.Dungeon
             string n = "";
             int p = 0;
             int h = 0;
-            if(random)
+            if (random)
             {
 
             }
@@ -31,31 +27,31 @@ namespace MoreLearning.Dungeon
                 p = power;
                 h = health;
             }
-            while(h>0)
+            while (h > 0)
             {
                 Console.WriteLine("**************************");
                 Console.WriteLine("|   (A)ttack  (D)efend   |");
                 Console.WriteLine("|     (R)un    (H)eal    |");
                 Console.WriteLine("**************************");
-                Console.WriteLine(" Potions: " + Engine.currentPlayer.potion + " Health: "+Engine.currentPlayer.health);
+                Console.WriteLine(" Potions: " + Engine.currentPlayer.potion + " Health: " + Engine.currentPlayer.health);
                 string input = Console.ReadLine();
 
-                if(input.ToLower() == "a" || input.ToLower() == "attack")
+                if (input.ToLower() == "a" || input.ToLower() == "attack")
                 {
                     //attack
                     Console.WriteLine(" ");
                 }
-                else if(input.ToLower() == "d" || input.ToLower() == "defend")
+                else if (input.ToLower() == "d" || input.ToLower() == "defend")
                 {
                     //defend
                     Console.WriteLine(" ");
                 }
-                else if(input.ToLower() == "r" || input.ToLower() == "run")
+                else if (input.ToLower() == "r" || input.ToLower() == "run")
                 {
                     //run
                     Console.WriteLine(" ");
                 }
-                else if(input.ToLower() == "h" || input.ToLower() == "heal")
+                else if (input.ToLower() == "h" || input.ToLower() == "heal")
                 {
                     //heal
                     Console.WriteLine(" ");
