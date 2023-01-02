@@ -29,36 +29,35 @@ namespace MoreLearning
                 {
                     case 1:
                         Console.Clear();
-                        GuessingGame.Game();
+                        Old_Collection.Collection();
                         break;
                     case 2:
-                        Console.Clear();
-                        NetworkPing.Pinging();
-                        UserPrompts.ToCont();
+                        UserPrompts.Disabled();
+                        ProjectSelection();
                         break;
                     case 3:
                         Console.Clear();
-                        Fibo.Sequence();
-                        break;
-                    case 4:
-                        Console.Clear();
-                        CountDown.Count();
-                        break;
-                    case 5:
-                        Bank b = new Bank();
-                        b.RunBank();
-                        break;
-                    case 6:
-                        Console.Clear();
                         Engine.Start();
                         break;
-                    case 7:
-                        Console.Clear();
-                        NumArray.RunArray();
+                    case 4:
+                        UserPrompts.Disabled();
+                        ProjectSelection();
                         break;
-                    case 8:
+                    case 5:
                         Console.Clear();
                         Scrapes.RunScrapes();
+                        break;
+                    case 6:
+                        UserPrompts.Disabled();
+                        ProjectSelection();
+                        break;
+                    case 7:
+                        UserPrompts.Disabled();
+                        ProjectSelection();
+                        break;
+                    case 8:
+                        UserPrompts.Disabled();
+                        ProjectSelection();
                         break;
                     case 9:
                         UserPrompts.ExitApp();
@@ -81,7 +80,7 @@ namespace MoreLearning
     {
         public static void Prompt()
         {
-            Console.WriteLine("Please make a new selection");
+            Console.WriteLine();
             Console.WriteLine("  _____________________________________________________________________");
             Console.WriteLine(" |                                                                     |");
             Console.WriteLine(" |                           PRACTICE COLLECTION                       |");
@@ -92,15 +91,15 @@ namespace MoreLearning
             Console.WriteLine(" |                          WOULD LIKE TO TRY OUT.                     |");
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine(" |                                                                     |");
-            Console.WriteLine(" |                             1) GUESSING GAME                        |");
-            Console.WriteLine(" |                          2) GOOGLE NETWORK PING                     |");
-            Console.WriteLine(" |                          3) FIBONACCI SEQUENCE                      |");
-            Console.WriteLine(" |                            4) AGE COUNTDOWN                         |");
-            Console.WriteLine(" |                        5) BANK ACCOUNT SIMULATOR                    |");
-            Console.WriteLine(" |                                 6) DUNGEON                          |");
-            Console.WriteLine(" |                              7) Number Array                        |");
-            Console.WriteLine(" |                              8) SCRAPERS                            |");
-            Console.WriteLine(" |                             9) EXIT PROGRAM                         |");
+            Console.WriteLine(" |                          1) OLD COLLECTION                          |");
+            Console.WriteLine(" |                          2)                                         |");
+            Console.WriteLine(" |                          3) TEST DUNGEON                            |");
+            Console.WriteLine(" |                          4)                                         |");
+            Console.WriteLine(" |                          5) TEST SCRAPERS                           |");
+            Console.WriteLine(" |                          6)                                         |");
+            Console.WriteLine(" |                          7)                                         |");
+            Console.WriteLine(" |                          8)                                         |");
+            Console.WriteLine(" |                          9) EXIT PROGRAM                            |");
             Console.WriteLine(" |                                                                     |");
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine();
@@ -146,6 +145,32 @@ namespace MoreLearning
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine();
         }
+        public static void CollectionsPrompt()
+        {
+            Console.WriteLine();
+            Console.WriteLine("  _____________________________________________________________________");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |                           PRACTICE COLLECTION                       |");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |_____________________________________________________________________|");
+            Console.WriteLine(" |               PLEASE TYPE THE NUMBER OF THE ASSOCIATED APP YOU      |");
+            Console.WriteLine(" |                          WOULD LIKE TO TRY OUT.                     |");
+            Console.WriteLine(" |_____________________________________________________________________|");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |                          1) GUESSING GAME                          |");
+            Console.WriteLine(" |                          2) NETWORK PING                                        |");
+            Console.WriteLine(" |                          3) FIBONACCI                            |");
+            Console.WriteLine(" |                          4) AGE COUNTDOWN                                        |");
+            Console.WriteLine(" |                          5) SIMPLE BANK ACCT                           |");
+            Console.WriteLine(" |                          6)                                         |");
+            Console.WriteLine(" |                          7) NUM ARRAY                                        |");
+            Console.WriteLine(" |                          8)                                         |");
+            Console.WriteLine(" |                          9) EXIT PROGRAM                            |");
+            Console.WriteLine(" |                                                                     |");
+            Console.WriteLine(" |_____________________________________________________________________|");
+            Console.WriteLine();
+        }
 
         public static void Continue()
         {
@@ -157,13 +182,15 @@ namespace MoreLearning
 
         public static void SelectAgain()
         {
+            Console.Clear();
             Console.Write("Please select a different option.");
         }
 
         public static void Disabled()
         {
+            Console.Clear();
             Console.WriteLine("The app has been temporarily disabled");
-            //ExtApps.OpenPR();
+            Console.Write("Please select a different option.");
         }
 
 

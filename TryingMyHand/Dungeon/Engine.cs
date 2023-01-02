@@ -1,8 +1,18 @@
-﻿namespace MoreLearning.Dungeon
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace MoreLearning.Dungeon
 {
     public class Player
     {
         public string name = "";
+        public string potion;
+        public int health;
+        public var weaponChoice;
+        
     }
     public class Engine : Prompts
     {

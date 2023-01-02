@@ -1,10 +1,14 @@
-﻿namespace MoreLearning.Dungeon
-{
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
+namespace MoreLearning.Dungeon
+{
     public class Prompts
     {
-
-        // public variables for Prompts. Wait is the amount of milliseconds to wait between each character is printed.
+       // public variables for Prompts. Wait is the amount of milliseconds to wait between each character is printed.
         public static int wait = 1;
         public static string text;
 
@@ -20,14 +24,11 @@
                     Thread.Sleep(wait);
                 }
             }
-
         }
 
         //Anything pasting engine text (story and values) or runs the system.
         public class EnginePrompts
         {
-
-
             public static void TitleCard()
             {
                 text = ("The Dungeon");
@@ -79,7 +80,5 @@
         {
 
         }
-
-
     }
 }
