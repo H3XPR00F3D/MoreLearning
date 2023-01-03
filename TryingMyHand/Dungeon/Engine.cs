@@ -9,9 +9,13 @@ namespace MoreLearning.Dungeon
     public class Player
     {
         public string name = "";
-        public string potion;
+        public int coins = 0;
+        public int  potion= 5;
         public int health;
-        public var weaponChoice;
+        public int damage;
+        public int armorValue = 5;
+        public int weaponValue = 1;
+        
         
     }
     public class Engine : Prompts

@@ -2,9 +2,10 @@
 
 namespace MoreLearning.Dungeon
 {
-    public class Encounters
+
+    class Encounters
     {
-        Invento
+        static Random rand = new Random();
         public static void FirstEncounter()
         {
             Console.WriteLine("");
@@ -38,24 +39,48 @@ namespace MoreLearning.Dungeon
 
                 if (input.ToLower() == "a" || input.ToLower() == "attack")
                 {
-                    //attack
-                    Console.WriteLine(" ");
+                    ///////////////////////////
+                    //////////ATTACK//////////
+                    ///////////////////////////
+                    
+                    Console.WriteLine("With your FISTS you attack the " +n+ "The MONSTER swipes back.");
+                    int damage = p-Engine.currentPlayer.armorValue;
+                    if (damage < 0){ damage = 0; }
+                    int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1,4);
+                    Console.WriteLine("You lose " +damage+ "health and deal " +attack+ " damage.");
+                    Engine.currentPlayer.health -= damage;
+                    h -= attack;
+
                 }
                 else if (input.ToLower() == "d" || input.ToLower() == "defend")
                 {
-                    //defend
-                    Console.WriteLine(" ");
+                    ///////////////////////////
+                    //////////DEFEND/////////
+                    //////////////////////////
+                    
+                    Console.WriteLine("As the " + n + " prepares it's attack, you ready yourself to block it.");
+                    int damage = (p/4) - Engine.currentPlayer.armorValue;
+                    int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1, 4);
+                    Console.WriteLine("You lose " + damage + "health and deal " + attack + " damage.");
+                    Engine.currentPlayer.health -= damage;
+                    h -= attack;
                 }
                 else if (input.ToLower() == "r" || input.ToLower() == "run")
                 {
-                    //run
+                    ////////////////////////////
+                    ///////////RUN////////////
+                    //////////////////////////
                     Console.WriteLine(" ");
                 }
                 else if (input.ToLower() == "h" || input.ToLower() == "heal")
                 {
-                    //heal
+                    ///////////////////////////
+                    ///////////HEAL///////////
+                    ///////////////////////////
                     Console.WriteLine(" ");
                 }
+
+                Console.ReadKey();
 
             }
         }

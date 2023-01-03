@@ -7,7 +7,21 @@ using System.Threading.Tasks;
 namespace MoreLearning.Dungeon
 { 
      public class Inventory
+     {
+        public class Weapons
         {
+
+            public static void Unarmed()
+            {
+                string[] unarmed = { "fists", "open hand" };
+
+                string unarmed1 = unarmed[0];
+                string unarmed2 = unarmed[1];
+
+
+            }
+
+
             public static void Axe()
             {
 
@@ -17,7 +31,7 @@ namespace MoreLearning.Dungeon
             {
 
             }
-             public static void Hammer()
+            public static void Hammer()
             {
 
             }
@@ -26,6 +40,10 @@ namespace MoreLearning.Dungeon
             {
 
             }
+
+
+
         }
+     }
     
 }
