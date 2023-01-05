@@ -71,8 +71,6 @@ namespace MoreLearning.Dungeon
                     Thread.Sleep(wait);
                 }
             }
-
-
         }
 
         //Anything concerning encounter text.
