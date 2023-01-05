@@ -15,6 +15,7 @@ namespace MoreLearning.Dungeon
         public int damage;
         public int armorValue = 5;
         public int weaponValue = 1;
+        public string playerWeapon="";
 
         
     }
@@ -24,8 +25,15 @@ namespace MoreLearning.Dungeon
 
         public static void Run()
         {
-           // Start();
-            Encounters.FirstEncounter();
+            Encounters encounters = new Encounters();
+            // Start();
+            encounters.FirstEncounter();
+            Console.WriteLine();
+            Console.WriteLine("Now lets try a random encounter");
+            Console.WriteLine("Press any key when ready");
+            Console.ReadKey();
+            encounters.RandomEncounter();
+            
         }
         public static void Start()
         {
