@@ -2,7 +2,7 @@
 namespace MoreLearning.Dungeon
 {
 
-    class Encounters
+    class Encounters:Enemies
     {
         static Random rand = new Random();
         private Dictionary<string, (string, int, int, string)> enemies;
@@ -18,7 +18,7 @@ namespace MoreLearning.Dungeon
             enemies.Add("Orc", ("Orc", 15, 20, "Iron Axe"));
             enemies.Add("Young Orc", ("Young Orc", 6, 15, "Bone Axe"));
             enemies.Add("Dragon", ("Dragon", 20, 25, "Fire Breath"));
-         
+
         }
 
         public void FirstEncounter()
@@ -36,7 +36,7 @@ namespace MoreLearning.Dungeon
 
             // Get a random key from the dictionary
             Random random = new Random();
-            int index = random.Next(enemies.Keys.Count);
+            int index = random.Next(enemiesSmall.Keys.Count);
             string randomKey = enemies.Keys.ElementAt(index);
 
             // Get the values for the random enemy
