@@ -11,17 +11,22 @@ namespace MoreLearning.Dungeon
         public string name = "";
         public int coins = 0;
         public int  potion= 5;
-        public int health;
+        public int health = 10;
         public int damage;
         public int armorValue = 5;
         public int weaponValue = 1;
-        
+
         
     }
     public class Engine : Prompts
     {
         public static Player currentPlayer = new Player();
 
+        public static void Run()
+        {
+           // Start();
+            Encounters.FirstEncounter();
+        }
         public static void Start()
         {
             string text;
