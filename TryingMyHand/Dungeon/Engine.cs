@@ -20,7 +20,7 @@ namespace MoreLearning.Dungeon
 
         
     }
-    public class Engine : Prompts
+    public class Engine:Prompts
     {
         public static Player currentPlayer = new Player();
 
@@ -31,7 +31,7 @@ namespace MoreLearning.Dungeon
 
 
             Console.WriteLine();Console.WriteLine();
-            UserPrompts.Continue();
+            Prompts.PromptPrint.Continue();
 
             encounters.FirstEncounter();
             Console.WriteLine();Console.WriteLine("Now lets try a random encounter.\nPress any key when ready");
@@ -42,7 +42,7 @@ namespace MoreLearning.Dungeon
         }
         public static void Start()
         {
-            string text;
+            string text="";
             int wait =Prompts.wait;
 
             EnginePrompts.TitleCard();
@@ -50,18 +50,19 @@ namespace MoreLearning.Dungeon
             EnginePrompts.Naming();
             currentPlayer.name = Console.ReadLine();
             EnginePrompts.Awaken();
-            Console.WriteLine();
+            
 
             if (currentPlayer.name == "") { text = ("...not even your name."); }
             else { text=("...except your name, " + currentPlayer.name + "."); }
             PromptPrint.Print();
 
             Console.WriteLine(); Console.WriteLine();
-            UserPrompts.Continue();
+            Prompts.PromptPrint.Continue();
+
             EnginePrompts.CellInspect();
 
             Console.WriteLine(); Console.WriteLine();
-            UserPrompts.Continue();
+            Prompts.PromptPrint.Continue();
 
             PlayerActions.EscapeCell();
 

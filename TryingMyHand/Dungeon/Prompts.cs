@@ -24,6 +24,14 @@ namespace MoreLearning.Dungeon
                     Thread.Sleep(wait);
                 }
             }
+
+            public static void Continue()
+            {
+                Console.WriteLine("Press Enter to continue.");
+                ConsoleKeyInfo keyInfo = Console.ReadKey();
+                while (keyInfo.Key != ConsoleKey.Enter)
+                    keyInfo = Console.ReadKey();
+            }
         }
 
         //Anything pasting engine text (story and values) or runs the system.
@@ -51,9 +59,9 @@ namespace MoreLearning.Dungeon
                 text = (" 1) Wake Up!");
 
                 PromptPrint.Print();
-
-                Console.WriteLine(); Console.WriteLine();
-                text = ("You awaken in a cold, dark room. You feel the touch of stone against your skin. Your eyes flutter open into the \ndarkness. As they struggle for purchase on your surroundings, small pricks of light start to appear in a line in \nthe distance. You stand, dazed and weak in the knees. As your legs regain their strength, a realization comes to you. \nYou remember nothing...  ");
+                Console.WriteLine();
+                Console.WriteLine();
+                text = "You awaken in a cold, dark room. You feel the touch of stone against your skin. Your eyes flutter open into the \ndarkness. As they struggle for purchase on your surroundings, small pricks of light start to appear in a line in \nthe distance. You stand, dazed and weak in the knees. As your legs regain their strength, a realization comes to you. \nYou remember nothing...  ";
 
                 PromptPrint.Print();
 
@@ -64,12 +72,7 @@ namespace MoreLearning.Dungeon
             {
                 Console.Clear();
                 text = ("Your eyes, now acclimated to the dark around you, and your strength and health returning, you take a few solid steps towards the points of light, your hands groping in front of you. Grasping out, you wrap your finger over a cold and pitted metal bar, running vertically and continuing upwards beyond your reach.\n\nRunning your fingers along the bar you touch a second horizontal bar, and follow it to the left. About 6 inches away from the vertical bar is another. Your shoulder presses against the left wall and your hands grasp out and grab the contiuous vertical poles. However, These bars jiggle and are able to move, but are stuck in place.");
-
-                foreach (char c in text)
-                {
-                    Console.Write(c);
-                    Thread.Sleep(wait);
-                }
+                PromptPrint.Print();
             }
         }
 

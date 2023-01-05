@@ -11,7 +11,7 @@ namespace MoreLearning.Dungeon
     internal class PlayerActions
     {
         public static int wait = Prompts.wait;
-        public static string text;
+        public static string text = "";
 
         public static void EscapeCell()
         {

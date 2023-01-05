@@ -70,6 +70,8 @@ namespace MoreLearning.Dungeon
             }
             while (h > 0)
             {
+                Console.WriteLine(n);
+                Console.WriteLine("Atk: " + p + " HP: " +h );
                 Console.WriteLine("**************************");
                 Console.WriteLine("|   (A)ttack  (D)efend   |");
                 Console.WriteLine("|     (R)un    (H)eal    |");
