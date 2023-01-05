@@ -1,5 +1,4 @@
 ﻿using System;
-
 namespace MoreLearning.Dungeon
 {
 
@@ -51,7 +50,7 @@ namespace MoreLearning.Dungeon
             // Call the Combat method with the values
             Combat(false, name, power, health, weapon);
         }
-
+      
         public static void Combat(bool random, string name, int power, int health, string weapon)
         {
             string n = "";
