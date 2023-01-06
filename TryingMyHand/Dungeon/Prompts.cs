@@ -11,6 +11,7 @@ namespace MoreLearning.Dungeon
        // public variables for Prompts. Wait is the amount of milliseconds to wait between each character is printed.
         public static int wait = 1;
         public static string text;
+        public static int playerLvl = Engine.playerLvl;
 
         //Character printer for text strings. Uses 'wait' and 'text' values.
         public class PromptPrint
@@ -49,6 +50,7 @@ namespace MoreLearning.Dungeon
             {
                 text = ("What is the name of your Character?");
                 PromptPrint.Print();
+           
 
                 Console.WriteLine();
             }
@@ -61,11 +63,7 @@ namespace MoreLearning.Dungeon
                 PromptPrint.Print();
                 Console.WriteLine();
                 Console.WriteLine();
-                text = "You awaken in a cold, dark room. You feel the touch of stone against your skin. Your eyes flutter open into the \ndarkness. As they struggle for purchase on your surroundings, small pricks of light start to appear in a line in \nthe distance. You stand, dazed and weak in the knees. As your legs regain their strength, a realization comes to you. \nYou remember nothing...  ";
-
-                PromptPrint.Print();
-
-                Console.WriteLine();
+                text = ("You awaken in a cold, dark room. You feel the touch of stone against your skin. Your eyes flutter open into the \ndarkness. As they struggle for purchase on your surroundings, small pricks of light start to appear in a line in \nthe distance. You stand, dazed and weak in the knees. As your legs regain their strength, a realization comes to you. \nYou remember nothing...  ");
             }
 
             public static void CellInspect()
@@ -77,9 +75,20 @@ namespace MoreLearning.Dungeon
         }
 
         //Anything concerning encounter text.
-        public class EncounterPrompts
+        public class PlayerRecords
         {
+            public static void PlayerLvlExp()
+            {
+                text = "Lvl: " + playerLvl + " Exp: " + Engine.currentPlayer.playerExp;
+                PromptPrint.Print();
+            }
 
+            public static void PlayerInventory()
+            {
+                text = "Potions: " + Engine.currentPlayer.potion + " Health: " + Engine.currentPlayer.health;
+                PromptPrint.Print();
+            }
         }
+        
     }
 }

@@ -21,7 +21,7 @@ namespace MoreLearning.Dungeon
 
         }
 
-        public void FirstEncounter()
+        public static void FirstEncounter()
         {
 
             Console.Clear();
