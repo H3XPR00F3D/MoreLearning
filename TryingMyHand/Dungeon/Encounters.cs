@@ -36,7 +36,7 @@ namespace MoreLearning.Dungeon
 
             // Get a random key from the dictionary
             Random random = new Random();
-            int index = random.Next(enemiesSmall.Keys.Count);
+            int index = random.Next(enemies.Keys.Count);
             string randomKey = enemies.Keys.ElementAt(index);
 
             // Get the values for the random enemy
@@ -89,7 +89,7 @@ namespace MoreLearning.Dungeon
                     
                     Console.WriteLine("With your FISTS you attack the " +n+ " , and it swings back at you with it's "+w+".");
                     Console.WriteLine();
-                    int damage = p-Engine.currentPlayer.armorValue;
+                    int damage = (p/2)-Engine.currentPlayer.armorValue;
                     if (damage < 0){ damage = 0; }
                     int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1,4);
                     Console.WriteLine("You lose " +damage+ " health and deal " +attack+ " damage.");
@@ -103,10 +103,11 @@ namespace MoreLearning.Dungeon
                     //////////DEFEND/////////
                     //////////////////////////
                     
-                    Console.WriteLine("As the " + n + " stikes out with it's " +w+". You ready yourself to block it.");
-                    int damage = (p/4) - Engine.currentPlayer.armorValue;
+                    Console.WriteLine("As the " + n + " strikes out with it's " +w+". You ready yourself to block it.");
+                    int damage = p - Engine.currentPlayer.armorValue;
                     if (damage < 0) { damage = 0; }
                     int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1, 4);
+                    Console.WriteLine();
                     Console.WriteLine("You lose " + damage + "health and deal " + attack + " damage.");
                     Engine.currentPlayer.health -= damage;
                     h -= attack;

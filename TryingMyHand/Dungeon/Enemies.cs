@@ -8,7 +8,7 @@ namespace MoreLearning.Dungeon
 {
     public class Enemies
     {
-        public Dictionary<string, (string, int, int, string)> enemiesSmall;
+        public static Dictionary<string, (string, int, int, string)> enemiesSmall;
         public Dictionary<string, (string, int, int, string)> enemiesMid;
         public Dictionary<string, (string, int, int, string)> enemiesLarge;
         public void SmallEnemyDict()

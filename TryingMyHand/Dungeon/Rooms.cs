@@ -6,23 +6,25 @@ using System.Threading.Tasks;
 
 namespace MoreLearning.Dungeon
 {
+
     public class Rooms
     {
+        public static int wait = Prompts.wait;
+        public static string text = Prompts.text;
 
-        public static void DungeonHall()
+        public void DungeonHall()
         {
-            string text = "";
-            int wait = Prompts.wait;
 
-
-            text =("You are staring down a short, dark hallway. The floor and walls are made of cold stone and candle sconces line the walls.\n There are doors along the walls and one at the far end of the hallway.");
-            Prompts.PromptPrint.Print();
+            Console.Clear();
+            //Console.WriteLine("You are staring down a short, dark hallway. The floor and walls are made of cold stone and candle sconces line the \nwalls. There are doors along the walls and one at the far end of the hallway.");
+            text =("You are staring down a short, dark hallway. The floor and walls are made of cold stone and candle sconces line the \nwalls. There are doors along the walls and one at the far end of the hallway.");
+            // Prompts.PromptPrint.Print();
 
             Console.WriteLine();
             Console.WriteLine();
             Prompts.PlayerRecords.PlayerLvlExp();
-            text = ("**************************\n| Search Rooms to (L)eft |\n| Search Room to (R)ight |\n| Head to (D)oor in back |\n**************************\n  Potions: " + Engine.currentPlayer.potion + " Health: " + Engine.currentPlayer.health);
-            Prompts.PromptPrint.Print();
+            Console.WriteLine("**************************\n| Search Room to (L)eft  |\n| Search Room to (R)ight |\n| Head to (D)oor in back |\n**************************");
+           Prompts.PromptPrint.Print();
             Prompts.PlayerRecords.PlayerInventory();
             Console.WriteLine();
     

@@ -3,19 +3,31 @@ using MoreLearning.Dungeon;
 
 namespace MoreLearning
 {
-    public class RunIT
+    public class runIT
     {
-        public static void Main()
+
+        public static void Main(string[] args)
         {
             bool reload = true;
             while (reload == true)
             {
-                ProjectSelection();
+          //    Selector.ProjectSelection();
+              Engine.Run();
+
             }
         }
+
+    }  
+
+    class Selector:Engine
+    {
+        
+        
         public static void ProjectSelection()
         {
             int choice = 0;
+            var e = new Engine();
+
 
             while (choice == 0)
             {
@@ -37,7 +49,7 @@ namespace MoreLearning
                         break;
                     case 3:
                         Console.Clear();
-                        Engine.Run();
+               //         e.Run();
                         break;
                     case 4:
                         UserPrompts.Disabled();
