@@ -13,8 +13,8 @@ namespace MoreLearning.Dungeon
         public int coins = 0;
         public int  potion= 5;
         public int health = Player.playerLvl*12;
-        public int damage=1;
-        public int armorValue = Player.playerLvl*5;
+        public int damage=Player.playerLvl *5;
+        public int armorValue = Player.playerLvl*6;
         public int weaponValue = 2;
         public string playerWeapon="";
         public int playerExp = 0;

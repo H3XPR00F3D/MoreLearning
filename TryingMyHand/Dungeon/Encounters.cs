@@ -108,7 +108,7 @@ namespace MoreLearning.Dungeon
                     if (damage < 0) { damage = 0; }
                     int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1, 4);
                     Console.WriteLine();
-                    Console.WriteLine("You lose " + damage + "health and deal " + attack + " damage.");
+                    Console.WriteLine("You lose " + damage + " health and deal " + attack + " damage.");
                     Engine.currentPlayer.health -= damage;
                     h -= attack;
                 }
@@ -121,7 +121,7 @@ namespace MoreLearning.Dungeon
                    if( rand.Next(0,2) == 0)
                     {
                         Console.WriteLine("As you sprint away from the  " + n + ", it's strike cateches you in the back.");
-                        int damage = p-1 - Engine.currentPlayer.armorValue;
+                        double damage = p-.5 - Engine.currentPlayer.armorValue;
                         if (damage < 0) { damage=0; }   
                         Console.WriteLine("You lose " + damage + " health and are unable to escape.");
                         Console.ReadKey();
