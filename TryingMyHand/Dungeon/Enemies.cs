@@ -9,9 +9,9 @@ namespace MoreLearning.Dungeon
     public class Enemies
     {
         public static Dictionary<string, (string, int, int, string)> enemiesSmall;
-        public Dictionary<string, (string, int, int, string)> enemiesMid;
-        public Dictionary<string, (string, int, int, string)> enemiesLarge;
-        public void SmallEnemyDict()
+        public static  Dictionary<string, (string, int, int, string)> enemiesMid;
+        public static Dictionary<string, (string, int, int, string)> enemiesLarge;
+        public static void SmallEnemyDict()
         {
             enemiesSmall = new Dictionary<string, (string, int, int, string)>();
 
@@ -30,8 +30,7 @@ namespace MoreLearning.Dungeon
             enemiesSmall.Add("Goblin", ("Goblin", 2, 6, "Club"));
             enemiesSmall.Add("Goblin Champion", ("Goblin Champion", 3, 8, "Spiked Club"));
         }
-
-        public void MidEnemyDict()
+        public static void MidEnemyDict()
         {
             enemiesMid = new Dictionary<string, (string, int, int, string)>();
             
@@ -46,8 +45,7 @@ namespace MoreLearning.Dungeon
             enemiesMid.Add("Succubus",("Succubus",64,189,"Seductive Powers"));
             enemiesMid.Add("Incubus",("Incubus",66,179,"Seductive Powers"));
         }
-
-        public void LargeEnemyDict()
+        public static void LargeEnemyDict()
         {
             enemiesLarge = new Dictionary<string, (string, int, int, string)>();
 

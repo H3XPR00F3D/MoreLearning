@@ -10,24 +10,24 @@ namespace MoreLearning.Dungeon
 {
     internal class PlayerActions
     {
-        public static int wait = Prompts.wait;
-        public static string text = "";
+        public static int wait = PromptPrint.wait;
+        
 
         public static void EscapeCell()
         {
             Console.WriteLine();
             Console.Clear();
-            text = ("What action would you like to take?");
-            SlowPrint.Print();
+            PromptPrint.text = ("What action would you like to take?");
+            PromptPrint.Print();
 
             int doorHealth = 5;
             do
             {
-
+       
                 Console.WriteLine();
                 Console.WriteLine();
-                text = "**************************\n|  (J)iggle  (C)all out  |\n|        (S)houlder      |\n**************************";
-                SlowPrint.Print();
+                PromptPrint.text = "**************************\n|  (J)iggle  (C)all out  |\n|        (S)houlder      |\n**************************";
+                PromptPrint.Print();
                 Console.WriteLine();
                 Console.WriteLine("        (L)eave");
                 string input = Console.ReadLine();
@@ -37,30 +37,31 @@ namespace MoreLearning.Dungeon
                 {
                     doorHealth--;
                     Console.Clear();
-                    text = "You vigorously jiggle the bars.";
-                    SlowPrint.Print();
+                    PromptPrint.text = "You vigorously jiggle the bars.";
+                    PromptPrint.Print();
 
-                    if (doorHealth < 5 && doorHealth > 0) { Console.WriteLine(); text = "You can feel the bars give a little. Maybe shake it some more."; SlowPrint.Print(); }
+                    if (doorHealth < 5 && doorHealth > 0) { Console.WriteLine(); PromptPrint.text = "You can feel the bars give a little. Maybe shake it some more."; PromptPrint.Print(); }
 
                 }
                 else if (input.ToLower() == "c" || input.ToLower() == "call out")
                 {
-                    Console.WriteLine(); text = "You call out down the hall, but all you hear is your own voice echoing off the walls."; SlowPrint.Print(); ;
-                    if (doorHealth <= 5) { Console.WriteLine(); text = "Letting your captors know you are awake does not give you any solace. You should try something else."; SlowPrint.Print(); }
+                    Console.Clear();
+                    Console.WriteLine(); PromptPrint.text = "You call out down the hall, but all you hear is your own voice echoing off the walls."; PromptPrint.Print() ;
+                    if (doorHealth <= 5) { Console.WriteLine(); PromptPrint.text = "Letting your captors know you are awake does not give you any solace. You should try something else."; PromptPrint.Print(); }
                 }
 
                 else if (input.ToLower() == "s" || input.ToLower() == "shoulder")
                 {
                     doorHealth -= 2;
                     Console.Clear();
-                    Console.WriteLine(); text = "You take a few steps back, dip your strong shoulder and charge...."; SlowPrint.Print();
-                    if (doorHealth > 0 && doorHealth < 5) { Console.WriteLine(); text = "That did something. The barred area has shaken and is very much looser. A few more of those should do the trick."; SlowPrint.Print(); }
+                    Console.WriteLine(); PromptPrint.text = "You take a few steps back, dip your strong shoulder and charge...."; PromptPrint.Print();
+                    if (doorHealth > 0 && doorHealth < 5) { Console.WriteLine(); PromptPrint.text = "That did something. The barred area has shaken and is very much looser. A few more of those should do the trick."; PromptPrint.Print(); }
                 }
 
                 else if (input.ToLower() == "l" || input.ToLower() == "leave")
                 {
-                    Console.WriteLine(text = "You let go of the bars and step back, looking into the small, dark room. It is very tiny, only enough room to take a few steps, or lay against the wall."); SlowPrint.Print();
-                    if (doorHealth > 0 && doorHealth <= 5) { Console.WriteLine(); text = "You might want to try the bars again. There isn't much else going on."; SlowPrint.Print(); }
+                    Console.WriteLine(); PromptPrint.text = "You let go of the bars and step back, looking into the small, dark room. It is very tiny, only enough room to take a few steps, or lay against the wall."; PromptPrint.Print();
+                    if (doorHealth > 0 && doorHealth <= 5) { Console.WriteLine(); PromptPrint.text = "You might want to try the bars again. There isn't much else going on."; PromptPrint.Print(); }
                 }
             }
             while (doorHealth > 0);
@@ -70,8 +71,8 @@ namespace MoreLearning.Dungeon
 
                 Console.WriteLine();
                 Console.WriteLine();
-                text = "The bars crash outward towards the ground. The metal slams against the stone floor and the sound fills the long hall.";
-                SlowPrint.Print();
+                PromptPrint.text = "The bars crash outward towards the ground. The metal slams against the stone floor and the sound fills the long hall.";
+                PromptPrint.Print();
 
             }
 
@@ -81,17 +82,6 @@ namespace MoreLearning.Dungeon
 
 
 
-        public class SlowPrint
-        {
-            public static void Print()
-            {
-                //prints lines character by character
-                foreach (char c in text)
-                {
-                    Console.Write(c);
-                    Thread.Sleep(wait);
-                }
-            }
-        }
+        
     }
 }

@@ -5,21 +5,7 @@ namespace MoreLearning.Dungeon
     class Encounters:Enemies
     {
         static Random rand = new Random();
-        private Dictionary<string, (string, int, int, string)> enemies;
 
-        public Encounters()
-        {
-            enemies = new Dictionary<string, (string, int, int, string)>();
-
-            enemies.Add("Human Rogue", ("Human Rogue", 1, 5, "Rusty Dagger"));
-            enemies.Add("Human Knight", ("Human Knight", 5, 10, "Steel Sword"));
-            enemies.Add("Goblin", ("Goblin", 2, 6, "Club"));
-            enemies.Add("Goblin Champion", ("Goblin Champion", 3, 8, "Spiked Club"));
-            enemies.Add("Orc", ("Orc", 15, 20, "Iron Axe"));
-            enemies.Add("Young Orc", ("Young Orc", 6, 15, "Bone Axe"));
-            enemies.Add("Dragon", ("Dragon", 20, 25, "Fire Breath"));
-
-        }
 
         public static void FirstEncounter()
         {
@@ -36,11 +22,13 @@ namespace MoreLearning.Dungeon
 
             // Get a random key from the dictionary
             Random random = new Random();
-            int index = random.Next(enemies.Keys.Count);
-            string randomKey = enemies.Keys.ElementAt(index);
+            int index = random.Next(Enemies.enemiesMid.Count);
+            string randomKey = Enemies.enemiesMid.Keys.ElementAt(index);
 
             // Get the values for the random enemy
-            (string name, int power, int health, string weapon) = enemies[randomKey];
+
+            Console.WriteLine(Enemies.enemiesMid.Count);
+            (string name, int power, int health, string weapon) = Enemies.enemiesMid[randomKey];
 
             Console.Clear();
             Console.WriteLine();
@@ -70,6 +58,7 @@ namespace MoreLearning.Dungeon
             }
             while (h > 0)
             {
+                
                 Console.WriteLine(n);
                 Console.WriteLine("Atk: " + p + " HP: " +h );
                 Console.WriteLine("**************************");
@@ -86,7 +75,7 @@ namespace MoreLearning.Dungeon
                     ///////////////////////////
                     //////////ATTACK//////////
                     ///////////////////////////
-                    
+                    Console.Clear();
                     Console.WriteLine("With your FISTS you attack the " +n+ " , and it swings back at you with it's "+w+".");
                     Console.WriteLine();
                     int damage = (p/2)-Engine.currentPlayer.armorValue;
@@ -102,7 +91,7 @@ namespace MoreLearning.Dungeon
                     ///////////////////////////
                     //////////DEFEND/////////
                     //////////////////////////
-                    
+                    Console.Clear();
                     Console.WriteLine("As the " + n + " strikes out with it's " +w+". You ready yourself to block it.");
                     int damage = p - Engine.currentPlayer.armorValue;
                     if (damage < 0) { damage = 0; }
@@ -117,6 +106,7 @@ namespace MoreLearning.Dungeon
                     ////////////////////////////
                     ///////////RUN/////////////
                     ////////////////////////////
+                    Console.Clear();
                     Console.WriteLine("You try to run. ");
                    if( rand.Next(0,2) == 0)
                     {
@@ -138,6 +128,7 @@ namespace MoreLearning.Dungeon
                     ///////////////////////////
                     ///////////HEAL///////////
                     ///////////////////////////
+                    Console.Clear();
                     Console.WriteLine(" ");
                     if (Engine.currentPlayer.potion==0)
                     {
