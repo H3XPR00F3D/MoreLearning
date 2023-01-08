@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,15 +33,16 @@ namespace MoreLearning.Dungeon
         }
         public static void PlayerLvlExp()
         {
-            text = ("   Lvl: " + Player.playerLvl + "     Exp: " + Engine.currentPlayer.playerExp + "\n");
+           
+            text = ("   Lvl: " + Engine.currentPlayer.playerLvl + "     Exp: " + Engine.currentPlayer.playerExp + "\n");
             Print();
-            text = (" Exp to next level: " + Player.toNextLevel + "\n");
+            text = (" Exp to next level: " + Engine.currentPlayer.toNextLevel + "\n");
             Print();
         }
 
         public static void PlayerInventory()
         {
-            text = ("  Potions: " + Engine.currentPlayer.potion + " Health: " + Engine.currentPlayer.health + "\n");
+            text = ("  Potions: " + currentPlayer.potion + " Health: " + currentPlayer.health + "\n");
             Print();
         }
 

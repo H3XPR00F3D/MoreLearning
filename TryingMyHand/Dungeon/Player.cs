@@ -9,8 +9,9 @@ namespace MoreLearning.Dungeon
 {
     public class Player
     {
+        public int playerLvl { get; set; }
         public int shieldValue { get; set; }
-        public static int toNextLevel { get; set; }
+        public int toNextLevel { get; set; }
         public int playerExp { get; set; }
         public string playerWeapon { get; set; }
         public int weaponValue { get; set; }
@@ -20,27 +21,28 @@ namespace MoreLearning.Dungeon
         public int potion { get; set; }
         public int coins { get; set; }
         public string name { get; set; }
-        public static int playerLvl { get; set; }
+        public static int wait = Prompts.wait;
+
 
 
         public Player()
         {
-
-            shieldValue = 2;
-            toNextLevel =(int)Math.Pow(playerLvl * 1,4);
+            playerLvl = 1;
+            shieldValue = 0;
+            toNextLevel =((playerLvl * 1)^4);
             playerExp = 0;
             playerWeapon = "";
             weaponValue = 2;
-            armorValue = (playerLvl/2)+5;
-            damage = playerLvl*4;
-            health = playerLvl *13;
+            armorValue = 0;
+            damage = (playerLvl *4);
+            health = (playerLvl *13);
             potion = 5;
             coins = 0;
             name = "";
-            playerLvl = 1;
+            
       
          }
-        public static int wait = Prompts.wait;
+        
         public static void ActEscapeCell()
         {
             Console.WriteLine();
@@ -106,27 +108,11 @@ namespace MoreLearning.Dungeon
 
         }
 
-        public static void GainXP(int xp)
-        {
-            var p = Engine.currentPlayer.name;
-            int pXP = Engine.currentPlayer.playerExp;
-            int x = xp-playerLvl;
-            Console.WriteLine();
-            Prompts.text = (p + " has gained " + x + " exp.");
-            Prompts.Print();
-            Console.WriteLine();
-            pXP += x;
-            if (pXP >= toNextLevel)
-            {
-                playerLvl++;
-                Prompts.text = (p + " has gained a new level. They are now lvl: " + playerLvl + " and must now gain " + toNextLevel + " exp to level up again\n");
-                Prompts.Print();
-                Prompts.Continue();
-            }
-        }
+        
         
         public static void Death()
         {
+            Engine e = new();
             Prompts.text = ("YOU HAVE BEEN SLAIN.\nWould you like to (S)ave your progress\n(R)eturn to the Title Screen");
             Prompts.Print();
             string input = Console.ReadLine();
@@ -143,8 +129,9 @@ namespace MoreLearning.Dungeon
 
     public Player(int shieldValue, int toNextLevel, int playerEXP, string playerWeapon, int weaponValue, int armorValue, int damage, int health, int potion, int coins, string name, int playerLvl)
     {
-        this.shieldValue = shieldValue;
-        Player.toNextLevel = toNextLevel;
+      this.playerLvl = playerLvl;
+     this.shieldValue = shieldValue;
+        this.toNextLevel = toNextLevel;
         this.playerExp = playerExp;
         this.playerWeapon = playerWeapon;
         this.weaponValue = weaponValue;
@@ -154,7 +141,7 @@ namespace MoreLearning.Dungeon
         this.potion = potion;
         this.coins = coins;
         this.name = name;
-        Player.playerLvl = playerLvl;
+        
     }
 }
 }

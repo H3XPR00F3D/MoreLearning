@@ -10,12 +10,14 @@ namespace MoreLearning.Dungeon
     {
         public static Player currentPlayer { get; set; }
         public static int newGame = 0;
+        
         public static void Run()
         {
+            
             Encounters encounters = new();
             Enemies.SmallEnemyDict();
-      //      Enemies.MidEnemyDict();
-      //      Enemies.LargeEnemyDict();
+            Enemies.MidEnemyDict();
+             Enemies.LargeEnemyDict();
              Start();
             Console.WriteLine(); Console.WriteLine();
             Prompts.Continue();
@@ -28,12 +30,13 @@ namespace MoreLearning.Dungeon
         }
         public static void Start()
         {
-            Engine.newGame = 0;
-            currentPlayer = new Player();
+            Engine.newGame = 1;
+           
+           
 
             Prompts.TitleCard();
             Console.WriteLine();
-            LoadSave();
+           // LoadSave();
             if (Engine.newGame==1) { NewGame(); }
 
 
@@ -44,8 +47,8 @@ namespace MoreLearning.Dungeon
         public static void NewGame()
         {
             Console.Clear();
-             Prompts.Naming();
-            Prompts.Awaken();
+             //Prompts.Naming();
+            //Prompts.Awaken();
             //Console.WriteLine(); Console.WriteLine();
             //Prompts.Continue();
 
@@ -79,7 +82,7 @@ namespace MoreLearning.Dungeon
                
 
                 sw.WriteLine(player.shieldValue);
-                sw.WriteLine(Player.toNextLevel);
+                sw.WriteLine(player.toNextLevel);
                 sw.WriteLine(player.playerExp);
                 sw.WriteLine(player.playerWeapon);
                 sw.WriteLine(player.weaponValue);
@@ -89,12 +92,12 @@ namespace MoreLearning.Dungeon
                 sw.WriteLine(player.potion);
                 sw.WriteLine(player.coins);
                 sw.WriteLine(player.name);
-                sw.WriteLine(Player.playerLvl);
+                sw.WriteLine(player.playerLvl);
             }
         }
         public static Player LoadGame()
         {
-            Engine e = new();
+            
             string path = "Save.txt";
             Prompts.text = ("Our squires are reading your archives.... \n.....\n.....\n");
             Prompts.Print();
@@ -142,6 +145,7 @@ namespace MoreLearning.Dungeon
         }
         public static void LoadSave()
         {
+            Engine e = new();
             Prompts.text = ("Would you like to.... \nPlay a (N)ew Game\n(L)oad a Save\n");
             Prompts.Print();
             Console.WriteLine();
