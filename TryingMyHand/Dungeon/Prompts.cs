@@ -62,9 +62,10 @@ namespace MoreLearning.Dungeon
             text = ("Name: ");
             Print();
 
-            p.name = (Console.ReadLine());
+            currentPlayer.name = (Console.ReadLine());
 
             Console.WriteLine();
+            
         }
 
         public static void Awaken()
@@ -81,9 +82,10 @@ namespace MoreLearning.Dungeon
             Console.WriteLine();
             Console.WriteLine();
 
-            if (p.name == "") { text = ("...not even your name."); }
-            else { text = ("...except your name, " + p.name + "."); }
+            if (currentPlayer.name == "") { text = ("...not even your name."); }
+            else { text = ("...except your name, " + currentPlayer.name + "."); }
             Print();
+            Console.ReadLine();
         }
 
         public static void CellInspect()
