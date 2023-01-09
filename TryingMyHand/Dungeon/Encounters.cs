@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Numerics;
+using System.Runtime.CompilerServices;
 using System.Security.Cryptography.X509Certificates;
 
 namespace MoreLearning.Dungeon
@@ -8,19 +10,28 @@ namespace MoreLearning.Dungeon
     {
         
         static Random rand = new Random();
-       public static Player? currentPlayer= new();
+        public Player Player { get; set; }
+        //public static Player? currentPlayer= new();
 
-        public static void FirstEncounter()
+        public Encounters(Player player)
+        {
+            this.Player = player;
+            // Assume that player is a valid Player object
+            Engine.SetCurrentPlayer(player);
+        }
+        public void FirstEncounter()
         {
 
-            Console.Clear();
+            
 
-            Console.WriteLine("Here comes the Dungeon Guard");
-            Console.WriteLine();
+            Console.WriteLine("............ the Dungeon Guard!!");
+            
+            Images.HumanBrute();
+
             Combat(false, "Human Brute", 1, 5, "Wooden Club", 20);
         
         }
-        public void RandomEncounter()
+        public static void RandomEncounter()
         {
             
             int levelRange = Engine.currentPlayer.playerLvl;
@@ -30,7 +41,7 @@ namespace MoreLearning.Dungeon
             else if (levelRange >= 20) { RandomEncounterLarge(); }
         }
 
-        public void RandomEncounterSmall()
+        public static void RandomEncounterSmall()
         {
 
             // Get a random key from the dictionary
@@ -49,10 +60,11 @@ namespace MoreLearning.Dungeon
             Console.WriteLine();
 
             // Call the Combat method with the values
+
             Combat(false, name, power, health, weapon,xp);
 
         }
-        public void RandomEncounterMid()
+        public static void RandomEncounterMid()
         {
 
             // Get a random key from the dictionary
@@ -73,7 +85,7 @@ namespace MoreLearning.Dungeon
             // Call the Combat method with the values
             Combat(false, name, power, health, weapon,xp);
         }
-        public void RandomEncounterLarge()
+        public static void RandomEncounterLarge()
         {
 
             // Get a random key from the dictionary
@@ -98,6 +110,7 @@ namespace MoreLearning.Dungeon
 
         public static void Combat(bool random, string name, int power, int health, string weapon, int xp)
         {
+            
             string n = "";
             int p = 0;
             int h = 0;
@@ -113,6 +126,7 @@ namespace MoreLearning.Dungeon
             do
             {
                 Console.WriteLine(n);
+                Prompts.PlayerLvlExp();
                 Prompts.text = ("Atk: " + p + " HP: " + h + "\n" + "************************** \n|   (A)ttack  (D)efend   |\n|     (R)un    (H)eal    |\n**************************\n");
                 Prompts.Print();
                 Prompts.PlayerInventory();
@@ -125,17 +139,17 @@ namespace MoreLearning.Dungeon
                     ///////////////////////////
                     //////////ATTACK//////////
                     ///////////////////////////
-                    Console.Clear();
+                    
                     Console.WriteLine("With your FISTS you attack the " + n + " , and it swings back at you with it's " + w + ".");
                     Console.WriteLine();
-                    int damage = p  - currentPlayer.armorValue;
+                    int damage = p  - Engine.currentPlayer.armorValue;
                     if (damage < 0) { damage = 0; }
-                    int attack = rand.Next(0, currentPlayer.weaponValue) + rand.Next(0, 20);
+                    int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(0, 20);
                     Console.WriteLine("You lose " + damage + " health and deal " + attack + " damage.");
-                    currentPlayer.health -= damage;
+                    Engine.currentPlayer.health -= damage;
                     h -= attack;
                     if (h < 0) { h = 0; }
-                    if (currentPlayer.health <= 0) {Player.Death(); }
+                    if (Engine.currentPlayer.health <= 0) {Player.Death(); }
                     if (h <= 0) { GainXP(xpTemp); }
                     
                 }
@@ -150,7 +164,8 @@ namespace MoreLearning.Dungeon
                     if (damage < 0) { damage = 0; }
                     int attack = rand.Next(0, Engine.currentPlayer.weaponValue) + rand.Next(1, 10);
                     Console.WriteLine();
-                    Console.WriteLine("You lose " + (damage / Engine.currentPlayer.shieldValue) + " health and deal " + attack + " damage.");
+                    Console.WriteLine("You lose " + damage + " health and deal " + attack + " damage.");
+                    Console.WriteLine("You lose " + (damage -Engine.currentPlayer.shieldValue) + " health and deal " + attack + " damage.");
                     Engine.currentPlayer.health -= damage;
                     h -= attack;
                     if (h < 0) { h = 0; }
@@ -186,7 +201,7 @@ namespace MoreLearning.Dungeon
                     ///////////////////////////
                     Console.Clear();
                     Console.WriteLine(" ");
-                    if (currentPlayer.potion == 0)
+                    if (Engine.currentPlayer.potion == 0)
                     {
                         Console.WriteLine("You fumble in your bag, searching for the weight of a full bottle of potion, but all you find are empties. ");
                         Console.WriteLine("The " + n + "");
@@ -197,38 +212,54 @@ namespace MoreLearning.Dungeon
                         Console.WriteLine("You pull out a glowing green flask and drink from it deeply. ");
                         int potionV = 5;
                         Console.WriteLine("You recover " + potionV + " health");
-                        currentPlayer.health += potionV;
+                        Engine.currentPlayer.health += potionV;
                         Console.ReadKey();
                     }
 
                 }
-
+          
                 Console.WriteLine();
                 Console.WriteLine();
             }
             while (h > 0);
+            
+            
+
+            
         }
 
         public static void GainXP(int xp)
         {
-            int pL = currentPlayer.playerLvl;
-            string pN = currentPlayer.name;
-            int pNL = currentPlayer.toNextLevel;
-            int x = (xp -    currentPlayer.playerLvl);
-            int pXP = currentPlayer.playerExp;
+            int pL = Engine.currentPlayer.playerLvl;
+            string pN = Engine.currentPlayer.name;
+            int pNL = Engine.currentPlayer.toNextLevel;
+            int x = xp;
+            int nXP;
+            int pXP = Engine.currentPlayer.playerExp;
+            if (x < 1) { x = 1; }
+            if (pXP< 1) { pXP = 1; }
             Console.WriteLine();
-            Prompts.text = (pN + " has gained " + xp + " exp.");
+            Prompts.text = (pN + " has gained " + x + " exp.");
             Prompts.Print();
             Console.WriteLine();
             pXP += x;
-            if (pXP >= pNL)
+            
+            //Level up 
+
+            while (pXP >= pNL)
             {
                 pL++;
-              pNL = (int)Math.Pow((pL*1),4);
+                Engine.currentPlayer.playerLvl=pL;
+                pNL = (int)Math.Pow((pL*1),4);
+                Engine.currentPlayer.toNextLevel = pNL;
+                Engine.currentPlayer.health = pL*13;
+                Engine.currentPlayer.damage = pL * 4;
+                Engine.currentPlayer.armorValue = pL+1;
                 Prompts.text = (pN + " has gained a new level. They are now lvl: " + pL + " and must now gain " + pNL + " exp to level up again\n");
                 Prompts.Print();
                 Prompts.Continue();
             }
+            Engine.currentPlayer.playerExp += xp;
         }
 
     }

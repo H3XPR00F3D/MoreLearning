@@ -10,7 +10,7 @@ namespace MoreLearning.Dungeon
     //Anything concerning encounter text.
     public class Prompts
     {
-        public static Player currentPlayer = new();
+        //public static Player currentPlayer = new();
         public static int wait = 5;
         public static string text;
 
@@ -42,7 +42,7 @@ namespace MoreLearning.Dungeon
 
         public static void PlayerInventory()
         {
-            text = ("  Potions: " + currentPlayer.potion + " Health: " + currentPlayer.health + "\n");
+            text = ("  Potions: " + Engine.currentPlayer.potion + " Health: " + Engine.currentPlayer.health + "\n");
             Print();
         }
 
@@ -56,7 +56,7 @@ namespace MoreLearning.Dungeon
 
         public static void Naming()
         {
-            Player p = new();
+            
             text = ("What is the name of your Character?");
             Print();
             Console.WriteLine();
@@ -64,7 +64,7 @@ namespace MoreLearning.Dungeon
             text = ("Name: ");
             Print();
 
-            currentPlayer.name = (Console.ReadLine());
+            Engine.currentPlayer.name = (Console.ReadLine());
 
             Console.WriteLine();
             
@@ -72,7 +72,7 @@ namespace MoreLearning.Dungeon
 
         public static void Awaken()
         {
-            Player p = new();
+            
             Console.Clear();
             text = (" 1) Wake Up!");
 
@@ -84,8 +84,8 @@ namespace MoreLearning.Dungeon
             Console.WriteLine();
             Console.WriteLine();
 
-            if (currentPlayer.name == "") { text = ("...not even your name."); }
-            else { text = ("...except your name, " + currentPlayer.name + "."); }
+            if (Engine.currentPlayer.name == "") { text = ("...not even your name."); }
+            else { text = ("...except your name, " + Engine.currentPlayer.name + "."); }
             Print();
             Console.ReadLine();
         }

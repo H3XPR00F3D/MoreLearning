@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace MoreLearning.Dungeon
 { 
@@ -11,24 +13,36 @@ namespace MoreLearning.Dungeon
         public static Player currentPlayer { get; set; }
         public static int newGame = 0;
         
-        public static void Run()
+
+        public static void SetCurrentPlayer(Player player)
         {
-            
-            Encounters encounters = new();
-            Enemies.SmallEnemyDict();
-            Enemies.MidEnemyDict();
-             Enemies.LargeEnemyDict();
-             Start();
-            Console.WriteLine(); Console.WriteLine();
-            Prompts.Continue();
-
-            Console.Clear();
-            Console.WriteLine(); Console.WriteLine("Now lets try a random encounter.\nPress any key when ready");
-            Console.ReadKey();
-            encounters.RandomEncounter();
-
+            currentPlayer = player;
         }
-        public static void Start()
+
+        public static void Run(Player player)
+        {
+            do
+            {
+                Encounters encounters = new(player);
+
+                Enemies.SmallEnemyDict();
+                Enemies.MidEnemyDict();
+                Enemies.LargeEnemyDict();
+
+
+                Start(player);
+                SetCurrentPlayer(encounters.Player);
+                Console.WriteLine(); Console.WriteLine();
+                Prompts.Continue();
+
+                Console.Clear();
+                Console.WriteLine(); Console.WriteLine("Now lets try a random encounter.\nPress any key when ready");
+                Console.ReadKey();
+                Encounters.RandomEncounter();
+            }
+            while (newGame == 1);
+        }
+        public static void Start(Player player)
         {
             Engine.newGame = 1;
            
@@ -37,34 +51,38 @@ namespace MoreLearning.Dungeon
             Prompts.TitleCard();
             Console.WriteLine();
            // LoadSave();
-            if (Engine.newGame==1) { NewGame(); }
+            if (Engine.newGame==1) { NewGame(player); }
+
 
 
             Console.WriteLine(); Console.WriteLine();
-            Rooms.DungeonHall();
+            Prompts.text = ("Now lets try a random battle");
+            Prompts.Print();
+            Encounters.RandomEncounter();
         }
 
-        public static void NewGame()
+        public static void NewGame(Player player)
         {
+            Encounters encounters = new(player);
             Console.Clear();
-             //Prompts.Naming();
-            //Prompts.Awaken();
-            //Console.WriteLine(); Console.WriteLine();
-            //Prompts.Continue();
+            Prompts.Naming();
+            Prompts.Awaken();
+            Console.WriteLine(); Console.WriteLine();
+            Prompts.Continue();
 
-            //Prompts.CellInspect();
-
-            //Console.WriteLine(); Console.WriteLine();
-            //Prompts.Continue();
-
-            //Console.WriteLine(); Console.WriteLine();
-            //Player.ActEscapeCell();
+            Prompts.CellInspect();
 
             Console.WriteLine(); Console.WriteLine();
-            Encounters.FirstEncounter();
-            Encounters.FirstEncounter();
-            Encounters.FirstEncounter();
-            Encounters.FirstEncounter();
+            Prompts.Continue();
+
+            Console.WriteLine(); Console.WriteLine();
+            Player.ActEscapeCell();
+
+            Console.WriteLine(); Console.WriteLine();
+            encounters.FirstEncounter();
+          //  SetCurrentPlayer(player);
+            Rooms.DungeonHall();
+           
         }
         public static void SaveGame(Player player)
         {
@@ -95,7 +113,7 @@ namespace MoreLearning.Dungeon
                 sw.WriteLine(player.playerLvl);
             }
         }
-        public static Player LoadGame()
+        public static Player LoadGame(Player player)
         {
             
             string path = "Save.txt";
@@ -107,7 +125,7 @@ namespace MoreLearning.Dungeon
                 Prompts.text = ("There is a problem with your archives. The scribes are in a tussle and demanding you be sent to the beginning. \nA new game will be started. \n");
                 Prompts.Print();
                 Prompts.Continue();
-                NewGame();
+                NewGame(player);
                 return new Player();
             }
             
@@ -143,7 +161,7 @@ namespace MoreLearning.Dungeon
                 return new Player();
             }
         }
-        public static void LoadSave()
+        public static void LoadSave(Player player)
         {
             Engine e = new();
             Prompts.text = ("Would you like to.... \nPlay a (N)ew Game\n(L)oad a Save\n");
@@ -155,14 +173,15 @@ namespace MoreLearning.Dungeon
             if (input.ToLower() == "n" || input.ToLower() == "new" || input.ToLower() == "new game")
             {
                Console.Clear();
-               NewGame();
+               NewGame(player);
             }
             else if (input.ToLower() == "l" || input.ToLower() == "load" || input.ToLower() == "load a save" || input.ToLower() == "load save")
             {
                 Console.Clear();
-               Engine.currentPlayer = LoadGame();
+               Engine.currentPlayer = LoadGame(player);
             }
             
         }
+
     }
 }

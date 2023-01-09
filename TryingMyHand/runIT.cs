@@ -11,8 +11,9 @@ namespace MoreLearning
             bool reload = true;
             while (reload == true)
             {
-          //    Selector.ProjectSelection();
-              Engine.Run();
+                Player player = new Player();
+                //    Selector.ProjectSelection();
+                Engine.Run(player);
 
             }
         }
