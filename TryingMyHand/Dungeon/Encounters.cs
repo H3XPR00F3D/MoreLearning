@@ -5,14 +5,11 @@ using System.Security.Cryptography.X509Certificates;
 
 namespace MoreLearning.Dungeon
 {
-
     class Encounters:Enemies
     {
-        
         static Random rand = new Random();
         public Player Player { get; set; }
         //public static Player? currentPlayer= new();
-
         public Encounters(Player player)
         {
             this.Player = player;
@@ -21,96 +18,68 @@ namespace MoreLearning.Dungeon
         }
         public void FirstEncounter()
         {
-
-            
-
             Console.WriteLine("............ the Dungeon Guard!!");
-            
             Images.HumanBrute();
-
             Combat(false, "Human Brute", 1, 5, "Wooden Club", 20);
-        
         }
         public static void RandomEncounter()
-        {
-            
+        {  
             int levelRange = Engine.currentPlayer.playerLvl;
-
             if (levelRange < 10) { RandomEncounterSmall(); }
             else if (levelRange >=10 && levelRange < 20) { RandomEncounterMid(); }
             else if (levelRange >= 20) { RandomEncounterLarge(); }
         }
-
         public static void RandomEncounterSmall()
         {
-
             // Get a random key from the dictionary
             Random random = new Random();
             int index = random.Next(Enemies.enemiesSmall.Count);
             string randomKey = Enemies.enemiesSmall.Keys.ElementAt(index);
-
             // Get the values for the random enemy
-
            // Console.WriteLine(Enemies.enemiesSmall.Count);
             (string name, int power, int health, string weapon, int xp) = Enemies.enemiesSmall[randomKey];
-            
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
-
             // Call the Combat method with the values
-
             Combat(false, name, power, health, weapon,xp);
-
         }
         public static void RandomEncounterMid()
         {
-
             // Get a random key from the dictionary
             Random random = new Random();
             int index = random.Next(Enemies.enemiesMid.Count);
             string randomKey = Enemies.enemiesMid.Keys.ElementAt(index);
-
             // Get the values for the random enemy
-
           //  Console.WriteLine(Enemies.enemiesMid.Count);
             (string name, int power, int health, string weapon, int xp) = Enemies.enemiesMid[randomKey];
-
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
-
             // Call the Combat method with the values
             Combat(false, name, power, health, weapon,xp);
         }
         public static void RandomEncounterLarge()
         {
-
             // Get a random key from the dictionary
             Random random = new Random();
             int index = random.Next(Enemies.enemiesLarge.Count);
             string randomKey = Enemies.enemiesLarge.Keys.ElementAt(index);
-
             // Get the values for the random enemy
-
             //Console.WriteLine(Enemies.enemiesLarge.Count);
             (string name, int power, int health, string weapon, int xp) = Enemies.enemiesLarge[randomKey];
-
             Console.Clear();
             Console.WriteLine();
             Console.Clear();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
-
             // Call the Combat method with the values
             Combat(false, name, power, health, weapon,xp);
         }
-
         public static void Combat(bool random, string name, int power, int health, string weapon, int xp)
         {
-            
             string n = "";
             int p = 0;
             int h = 0;
@@ -122,7 +91,6 @@ namespace MoreLearning.Dungeon
                // p = (power*rand.Next(1,3)/2) ;
                 h = health;
                 xpTemp = xp;
-
             do
             {
                 Console.WriteLine(n);
@@ -133,13 +101,11 @@ namespace MoreLearning.Dungeon
                 Console.WriteLine();
                 string input = Console.ReadLine();
                 Console.WriteLine();
-
                 if (input.ToLower() == "a" || input.ToLower() == "attack")
                 {
                     ///////////////////////////
                     //////////ATTACK//////////
                     ///////////////////////////
-                    
                     Console.WriteLine("With your FISTS you attack the " + n + " , and it swings back at you with it's " + w + ".");
                     Console.WriteLine();
                     int damage = p  - Engine.currentPlayer.armorValue;
@@ -150,8 +116,7 @@ namespace MoreLearning.Dungeon
                     h -= attack;
                     if (h < 0) { h = 0; }
                     if (Engine.currentPlayer.health <= 0) {Player.Death(); }
-                    if (h <= 0) { GainXP(xpTemp); }
-                    
+                    if (h <= 0) { GainXP(xpTemp); } 
                 }
                 else if (input.ToLower() == "d" || input.ToLower() == "defend")
                 {
@@ -215,19 +180,12 @@ namespace MoreLearning.Dungeon
                         Engine.currentPlayer.health += potionV;
                         Console.ReadKey();
                     }
-
                 }
-          
                 Console.WriteLine();
                 Console.WriteLine();
             }
             while (h > 0);
-            
-            
-
-            
         }
-
         public static void GainXP(int xp)
         {
             int pL = Engine.currentPlayer.playerLvl;
@@ -243,9 +201,7 @@ namespace MoreLearning.Dungeon
             Prompts.Print();
             Console.WriteLine();
             pXP += x;
-            
             //Level up 
-
             while (pXP >= pNL)
             {
                 pL++;
@@ -261,6 +217,5 @@ namespace MoreLearning.Dungeon
             }
             Engine.currentPlayer.playerExp += xp;
         }
-
     }
 }

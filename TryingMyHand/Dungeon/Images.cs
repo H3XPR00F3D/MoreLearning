@@ -8,7 +8,6 @@ namespace MoreLearning.Dungeon
 {
     internal class Images
     {
-
         public static void HumanBrute()
         {
             Prompts.text = ("              \n");

@@ -14,7 +14,6 @@ namespace MoreLearning.Dungeon
         {
             Prompts.text = ("You are staring down a short, dark hallway. The floor and walls are made of cold stone and candle sconces line the walls.\n There are doors along the walls and one at the far end of the hallway.");
             Prompts.Print();
-
             Console.WriteLine();
             Console.WriteLine();
             Prompts.PlayerLvlExp();
@@ -22,7 +21,6 @@ namespace MoreLearning.Dungeon
             Prompts.Print();
             Prompts.PlayerInventory();
             Console.WriteLine();
-
             string input = Console.ReadLine();
             Console.WriteLine();
         }
