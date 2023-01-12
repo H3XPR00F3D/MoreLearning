@@ -1,11 +1,9 @@
 ﻿using MoreLearning.Collections;
 using MoreLearning.Dungeon;
-
 namespace MoreLearning
 {
     public class runIT
     {
-
         public static void Main(string[] args)
         {
             bool reload = true;
@@ -14,30 +12,21 @@ namespace MoreLearning
                 Player player = new Player();
                 //    Selector.ProjectSelection();
                 Engine.Run(player);
-
             }
         }
-
     }  
-
-    class Selector:Engine
+    class Selector
     {
-        
-        
         public static void ProjectSelection()
         {
             int choice = 0;
             var e = new Engine();
-
-
             while (choice == 0)
             {
                 UserPrompts.Prompt();
                 SelectionLists s = new SelectionLists();
                 Console.WriteLine();
                 choice = Convert.ToInt32(Console.ReadLine());
-
-
                 switch (choice)
                 {
                     case 1:
@@ -88,7 +77,6 @@ namespace MoreLearning
             }
         }
     }
-
     public class UserPrompts
     {
         public static void Prompt()
@@ -131,7 +119,6 @@ namespace MoreLearning
             int countdown = 100 - ageInput;
             Console.WriteLine(nameInput + " you have " + countdown.ToString() + " more years until you are 100!!");
         }
-
         public static void ScrapePrompt()
         {
             Console.WriteLine();
@@ -184,7 +171,6 @@ namespace MoreLearning
             Console.WriteLine(" |_____________________________________________________________________|");
             Console.WriteLine();
         }
-
         public static void Continue()
         {
             Console.WriteLine("Press Enter to continue.");
@@ -192,27 +178,22 @@ namespace MoreLearning
             while (keyInfo.Key != ConsoleKey.Enter)
                 keyInfo = Console.ReadKey();
         }
-
         public static void SelectAgain()
         {
             Console.Clear();
             Console.Write("Please select a different option.");
         }
-
         public static void Disabled()
         {
             Console.Clear();
             Console.WriteLine("The app has been temporarily disabled");
             Console.Write("Please select a different option.");
         }
-
-
         public static void ToCont()
         {
             Console.WriteLine("Press any key to continue.");
             Console.ReadLine();
         }
-
         //---------------------------------------------------------------------
         //Exit Prompts
         //---------------------------------------------------------------------
@@ -228,6 +209,4 @@ namespace MoreLearning
         }
         //---------------------------------------------------------------------
     }
-
 }
-

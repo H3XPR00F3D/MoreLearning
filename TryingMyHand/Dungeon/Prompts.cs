@@ -6,8 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace MoreLearning.Dungeon
-{
-    //Anything concerning encounter text.
+{ //Anything concerning encounter text.
     public class Prompts
     {
         //public static Player currentPlayer = new();
