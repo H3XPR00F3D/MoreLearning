@@ -21,6 +21,7 @@ namespace MoreLearning.Dungeon
         public int coins { get; set; }
         public string name { get; set; }
         public static int wait = Prompts.wait;
+        public int potionValue { get; set; }
         public Player()
         {
             playerLvl = 1;
@@ -29,12 +30,13 @@ namespace MoreLearning.Dungeon
             playerExp = 0;
             playerWeapon = "";
             weaponValue = 2;
-            armorValue = 1;
+            armorValue = (playerLvl+1);
             damage = 4;
             health = 13;
             potion = 5;
             coins = 0;
             name = "";
+            potionValue = (playerLvl * 5);
         }
         public static void ActEscapeCell()
         {
@@ -131,7 +133,7 @@ namespace MoreLearning.Dungeon
                 // Engine.Run();
             }
         }
-        public Player(int shieldValue, int toNextLevel, int playerEXP, string playerWeapon, int weaponValue, int armorValue, int damage, int health, int potion, int coins, string name, int playerLvl)
+        public Player(int shieldValue, int toNextLevel, int playerEXP, string playerWeapon, int weaponValue, int armorValue, int damage, int health, int potion, int coins, string name, int playerLvl, int potionValue)
         {
             this.playerLvl = playerLvl;
             this.shieldValue = shieldValue;
@@ -145,6 +147,7 @@ namespace MoreLearning.Dungeon
             this.potion = potion;
             this.coins = coins;
             this.name = name;
+            this.potionValue = potionValue;
         }
     }
 }

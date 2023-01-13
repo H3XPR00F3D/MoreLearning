@@ -19,18 +19,20 @@ namespace MoreLearning.Dungeon
         {
             do
             {
+                Weapons.MeleeDict();
+                Rooms.Chest();
                 Encounters encounters = new(player);
                 Enemies.SmallEnemyDict();
-                Enemies.MidEnemyDict();
-                Enemies.LargeEnemyDict();
-                Start(player);
-                SetCurrentPlayer(encounters.Player);
-                Console.WriteLine(); Console.WriteLine();
-                Prompts.Continue();
-                Console.Clear();
-                Console.WriteLine(); Console.WriteLine("Now lets try a random encounter.\nPress any key when ready");
-                Console.ReadKey();
-                Encounters.RandomEncounter();
+                //Enemies.MidEnemyDict();
+                //Enemies.LargeEnemyDict();
+                //Start(player);
+                //SetCurrentPlayer(encounters.Player);
+                //Console.WriteLine(); Console.WriteLine();
+                //Prompts.Continue();
+                //Console.Clear();
+                //Console.WriteLine(); Console.WriteLine("Now lets try a random encounter.\nPress any key when ready");
+                //Console.ReadKey();
+                //Encounters.RandomEncounter();
             }
             while (newGame == 1);
         }
@@ -120,7 +122,8 @@ namespace MoreLearning.Dungeon
                     int coins = Convert.ToInt32(sr.ReadLine());
                     string name = sr.ReadLine();
                     int playerLvl = Convert.ToInt32(sr.ReadLine());
-                    return new Player(shieldValue, toNextLevel, playerExp, playerWeapon, weaponValue, armorValue, damage, health, potion, coins, name, playerLvl);
+                    int potionValue = Convert.ToInt32(sr.ReadLine());
+                    return new Player(shieldValue, toNextLevel, playerExp, playerWeapon, weaponValue, armorValue, damage, health, potion, coins, name, playerLvl,potionValue);
                 }
                 Prompts.text = ("Your archives have been recovered");
                 Prompts.Print();

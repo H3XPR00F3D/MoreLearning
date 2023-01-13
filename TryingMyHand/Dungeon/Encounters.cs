@@ -19,7 +19,7 @@ namespace MoreLearning.Dungeon
         {
             Console.WriteLine("............ the Dungeon Guard!!");
             Images.HumanBrute();
-            Combat(false, "Human Brute", 1, 5, "Wooden Club", 20);
+            Combat(false, "Human Brute", 1, 5, "Wooden Club", 20,10);
         }
         public static void RandomEncounter()
         {  
@@ -36,13 +36,13 @@ namespace MoreLearning.Dungeon
             string randomKey = Enemies.enemiesSmall.Keys.ElementAt(index);
             // Get the values for the random enemy
            // Console.WriteLine(Enemies.enemiesSmall.Count);
-            (string name, int power, int health, string weapon, int xp) = Enemies.enemiesSmall[randomKey];
+            (string name, int power, int health, string weapon, int xp,int reward) = Enemies.enemiesSmall[randomKey];
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
             // Call the Combat method with the values
-            Combat(false, name, power, health, weapon,xp);
+            Combat(false, name, power, health, weapon,xp, reward);
         }
         public static void RandomEncounterMid()
         {
@@ -52,13 +52,13 @@ namespace MoreLearning.Dungeon
             string randomKey = Enemies.enemiesMid.Keys.ElementAt(index);
             // Get the values for the random enemy
           //  Console.WriteLine(Enemies.enemiesMid.Count);
-            (string name, int power, int health, string weapon, int xp) = Enemies.enemiesMid[randomKey];
+            (string name, int power, int health, string weapon, int xp, int reward) = Enemies.enemiesMid[randomKey];
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
             // Call the Combat method with the values
-            Combat(false, name, power, health, weapon,xp);
+            Combat(false, name, power, health, weapon,xp, reward);
         }
         public static void RandomEncounterLarge()
         {
@@ -68,17 +68,18 @@ namespace MoreLearning.Dungeon
             string randomKey = Enemies.enemiesLarge.Keys.ElementAt(index);
             // Get the values for the random enemy
             //Console.WriteLine(Enemies.enemiesLarge.Count);
-            (string name, int power, int health, string weapon, int xp) = Enemies.enemiesLarge[randomKey];
+            (string name, int power, int health, string weapon, int xp, int reward) = Enemies.enemiesLarge[randomKey];
             Console.Clear();
             Console.WriteLine();
             Console.Clear();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);
             Console.WriteLine();
             // Call the Combat method with the values
-            Combat(false, name, power, health, weapon,xp);
+            Combat(false, name, power, health, weapon,xp, reward);
         }
-        public static void Combat(bool random, string name, int power, int health, string weapon, int xp)
+        public static void Combat(bool random, string name, int power, int health, string weapon, int xp, int reward)
         {
+            int r= 0;
             string n = "";
             int p = 0;
             int h = 0;
@@ -87,6 +88,7 @@ namespace MoreLearning.Dungeon
                 w = weapon;
                 n = name;
             p = power;
+            r= reward;
                // p = (power*rand.Next(1,3)/2) ;
                 h = health;
                 xpTemp = xp;
@@ -115,7 +117,7 @@ namespace MoreLearning.Dungeon
                     h -= attack;
                     if (h < 0) { h = 0; }
                     if (Engine.currentPlayer.health <= 0) {Player.Death(); }
-                    if (h <= 0) { GainXP(xpTemp); } 
+                    if (h <= 0) { GainXP(xpTemp); Engine.currentPlayer.coins += r; } 
                 }
                 else if (input.ToLower() == "d" || input.ToLower() == "defend")
                 {
@@ -134,7 +136,7 @@ namespace MoreLearning.Dungeon
                     h -= attack;
                     if (h < 0) { h = 0; }
                     if (    Engine.currentPlayer.health <= 0) { Player.Death(); }
-                    if (h <= 0) { GainXP(xpTemp); }
+                    if (h <= 0) { GainXP(xpTemp); Engine.currentPlayer.coins += r; }
                 }
                 else if (input.ToLower() == "r" || input.ToLower() == "run")
                 {
@@ -174,9 +176,10 @@ namespace MoreLearning.Dungeon
                     else
                     {
                         Console.WriteLine("You pull out a glowing green flask and drink from it deeply. ");
-                        int potionV = 5;
+                        int potionV = Engine.currentPlayer.potionValue *5;
                         Console.WriteLine("You recover " + potionV + " health");
                         Engine.currentPlayer.health += potionV;
+                        Engine.currentPlayer.potion -= 1;
                         Console.ReadKey();
                     }
                 }
