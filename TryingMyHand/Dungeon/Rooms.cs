@@ -10,7 +10,6 @@ namespace MoreLearning.Dungeon
     internal class Rooms
     {
         int wait = Prompts.wait;
-
         public static void DungeonHall(int visiting)
         {
             Prompts.text = ("You are staring down a short, dark hallway. The floor and walls are made of cold stone and candle sconces line the walls. \nThere is a door on each side of the walls and one at the far end of the hallway.");
@@ -43,9 +42,9 @@ namespace MoreLearning.Dungeon
                     Prompts.Print();
                     Prompts.Continue();
                 }
-                if(input.ToLower() == "d" || input.ToLower() == "door")
+                if (input.ToLower() == "d" || input.ToLower() == "door")
                 {
-                    Prompts.text = ("You take out the key you got from the jailer and push it into the lock. It turns slowly as it grinds against the iron of the lock, \nsqueeling until a loud CLUNK releases the lock and lets the door swing open.\n\n");
+                    Prompts.text = ("You take out the key you got from the jailer and push it into the lock. It turns slowly as it grinds against the iron of the lock, \nsqueeling until a loud CLUNK releases the lock, letting the door swing open.\n\n");
                     Prompts.Print();
                     visiting = 0;
                     Prompts.Continue();
@@ -53,6 +52,15 @@ namespace MoreLearning.Dungeon
             }
             while (visiting == 1);
         }
+        public static void TheDarkRoom()
+        {
+            Prompts.text = ("You are in a small, dark room with a single door on the wall opposite where you entered.");
+            Prompts.Print();
+            Prompts.text = ("A lone light shines from high above, illuminating a small table in the center of the room. A \nsheet of paper sits on top, straight and crisp, the ink like new.\nYou pick it up, and read:\n\n");
+            Prompts.Print();
+        }
+
+
         /*
         When a random room is needed, will build a room with a random number of doors, furniture, 
         a chest or not, an enemy or not, also counts how many random 
