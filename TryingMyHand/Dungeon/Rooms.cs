@@ -30,15 +30,16 @@ namespace MoreLearning.Dungeon
         a chest or not, an enemy or not, also counts how many random 
         rooms have been visited before.
         */
-        public void RandomRoom()
+        public void RandomRoom(int roomType, int doorAmt, int furnitureNum, int hasChest, int hasEnemy)
         {
             Chest chest = new();
             Random rand = new();
 
-            int doorNum = rand.Next(0,4);
-            int furnitureNum = 0;
-            int hasChest = 0;
-            int hasEnemy = rand.Next(0,1);
+            roomType = rand.Next(0, 5);
+            doorAmt = rand.Next(0,3);
+            furnitureNum = 0;
+            hasChest = 0;
+            hasEnemy = rand.Next(0,1);
             chest.CheckChest();
             int size = chest.size;
             int potions = chest.potion;
