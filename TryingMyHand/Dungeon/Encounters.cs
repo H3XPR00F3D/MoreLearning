@@ -52,7 +52,7 @@ namespace MoreLearning.Dungeon
             string randomKey = Enemies.enemiesMid.Keys.ElementAt(index);
             // Get the values for the random enemy
           //  Console.WriteLine(Enemies.enemiesMid.Count);
-            (string name, int power, int health, string weapon, int xp, int reward) = Enemies.enemiesMid[randomKey];
+            (string name, int power, int health, string weapon, int xp, int reward) = enemiesMid[randomKey];
             Console.Clear();
             Console.WriteLine();
             Console.WriteLine("You are being accosted by a " + name + ". It has " + health + " health, and " + power + " power and is weilding " + weapon);

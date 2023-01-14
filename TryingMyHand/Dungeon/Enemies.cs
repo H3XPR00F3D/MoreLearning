@@ -7,12 +7,12 @@ namespace MoreLearning.Dungeon
 {
     public class Enemies
     {
-        public static Dictionary<string, (string, int, int, string, int,int)> enemiesSmall;
-        public static Dictionary<string, (string, int, int, string, int,int)> enemiesMid;
-        public static Dictionary<string, (string, int, int, string, int,int)> enemiesLarge;
+        public static Dictionary<string, (string, int, int, string, int, int)> enemiesSmall;
+        public static Dictionary<string, (string, int, int, string, int, int)> enemiesMid;
+        public static Dictionary<string, (string, int, int, string, int, int)> enemiesLarge;
         public static void SmallEnemyDict()
         {
-            enemiesSmall = new Dictionary<string, (string, int, int, string, int,int)>();
+            enemiesSmall = new Dictionary<string, (string, int, int, string, int, int)>();
             enemiesSmall.Add("Gizmo", ("Gizmo", 5, 14, "Poisoned Daggers", 15,5));
             enemiesSmall.Add("Satyr", ("Satyr", 8, 19, "Scimitars", 20,6));
             enemiesSmall.Add("Naiad", ("Naiad", 10, 24, "Water Orbs", 25,7));
@@ -30,7 +30,7 @@ namespace MoreLearning.Dungeon
         }
         public static void MidEnemyDict()
         {
-            enemiesMid = new Dictionary<string, (string, int, int, string, int,int)>();
+            enemiesMid = new Dictionary<string, (string, int, int, string, int, int)>();
             enemiesMid.Add("Zombie", ("Zombie", 45, 143, "Rotting fists", 65,20));
             enemiesMid.Add("Vampire", ("Vampire", 47, 153, "Claws and Teeth", 70,21));
             enemiesMid.Add("Werewolf", ("Werewolf", 50, 163, "Claws and Teeth", 75,22));
