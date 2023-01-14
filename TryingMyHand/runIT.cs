@@ -1,18 +1,33 @@
 ﻿using MoreLearning.Collections;
 using MoreLearning.Dungeon;
+using System.Diagnostics;
 namespace MoreLearning
 {
     public class runIT
     {
         public static void Main(string[] args)
         {
-            Engine.ConsoleFull();
+
+            Player player = new Player();
+            //Engine.ConsoleFull();
             bool reload = true;
             while (reload == true)
             {
-                Player player = new Player();
-                //    Selector.ProjectSelection();
-                Engine.Run(player);
+                var process = new Process
+                {
+                    StartInfo = new ProcessStartInfo
+                    {
+                        FileName = "cmd.exe",
+                        RedirectStandardInput = true,
+                        RedirectStandardOutput = true,
+                        UseShellExecute = false,
+                        CreateNoWindow = false,
+                        Arguments = "/c YourConsoleApp.exe -arg1 player"
+                    }
+                };
+                process.Start();
+                Console.WriteLine(process.StandardOutput.ReadToEnd());
+                process.WaitForExit();
             }
         }
     }  
