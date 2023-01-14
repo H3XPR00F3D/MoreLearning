@@ -11,6 +11,7 @@ namespace MoreLearning.Dungeon
     {
         public static Player currentPlayer { get; set; }
         public static int newGame = 0;
+      //  Rooms room = new Rooms();
         public static void SetCurrentPlayer(Player player)
         {
             currentPlayer = player;
@@ -20,11 +21,12 @@ namespace MoreLearning.Dungeon
             do
             {
                 Weapons.MeleeDict();
-                Rooms.Chest();
+                
                 Encounters encounters = new(player);
                 Enemies.SmallEnemyDict();
-                //Enemies.MidEnemyDict();
-                //Enemies.LargeEnemyDict();
+                Enemies.MidEnemyDict();
+                Enemies.LargeEnemyDict();
+                Chest.CheckChest();
                 //Start(player);
                 //SetCurrentPlayer(encounters.Player);
                 //Console.WriteLine(); Console.WriteLine();
