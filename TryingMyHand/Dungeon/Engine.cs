@@ -5,10 +5,14 @@ using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
+
 namespace MoreLearning.Dungeon
 {
     public class Engine
     {
+
+
+
         public static Player currentPlayer { get; set; }
           
         public static int newGame = 0;
@@ -19,7 +23,7 @@ namespace MoreLearning.Dungeon
         }
         public static void Run(Player player)
         {
-            
+            ConsoleFull();
             do
             {
                 Weapons.MeleeDict();
@@ -28,7 +32,9 @@ namespace MoreLearning.Dungeon
                 Enemies.SmallEnemyDict();
                 Enemies.MidEnemyDict();
                 Enemies.LargeEnemyDict();
-                chest.CheckChest();
+
+                Rooms.DungeonHall(1);
+                //chest.CheckChest();
                 //Start(player);
                 //SetCurrentPlayer(encounters.Player);
                 //Console.WriteLine(); Console.WriteLine();
@@ -68,7 +74,7 @@ namespace MoreLearning.Dungeon
             Console.WriteLine(); Console.WriteLine();
             encounters.FirstEncounter();
             //  SetCurrentPlayer(player);
-            Rooms.DungeonHall();
+            Rooms.DungeonHall(1);
         }
         public static void SaveGame(Player player)
         {
@@ -159,6 +165,29 @@ namespace MoreLearning.Dungeon
                 Console.Clear();
                 Engine.currentPlayer = LoadGame(player);
             }
+        }
+
+        public static void ConsoleFull()
+        {
+            Console.BufferWidth = Console.WindowWidth = Console.LargestWindowWidth;
+            Console.BufferHeight = Console.WindowHeight = Console.LargestWindowHeight;
+            //Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
+
+            //Console.SetWindowPosition(0, 0);
+            //Console.SetWindowPosition(Console.LargestWindowWidth - Console.WindowWidth, 0);
+            //Console.SetWindowPosition(0, Console.LargestWindowHeight - Console.WindowHeight);
+            //Console.SetWindowPosition(Console.LargestWindowWidth - Console.WindowWidth, Console.LargestWindowHeight - Console.WindowHeight);
+
+            int width = Console.LargestWindowWidth;
+            int height = Console.LargestWindowHeight;
+            Console.SetWindowSize(width, height);
+            Console.BufferWidth = width;
+            Console.BufferHeight = height;
+
+
+
+
+
         }
     }
 }

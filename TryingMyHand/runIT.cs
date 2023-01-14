@@ -6,6 +6,7 @@ namespace MoreLearning
     {
         public static void Main(string[] args)
         {
+            Engine.ConsoleFull();
             bool reload = true;
             while (reload == true)
             {
