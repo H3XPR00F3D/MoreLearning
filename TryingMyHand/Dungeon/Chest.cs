@@ -37,13 +37,13 @@ namespace MoreLearning.Dungeon
 
                 if (chest.size == 0) { chestSize = "small"; }
                 else if (chest.size == 1) { chestSize = "medium"; }
-                else if (chest.size == 20) { chestSize = "Large"; }
+                else if (chest.size == 2) { chestSize = "Large"; }
 
               //  Prompts.text = ("There is a " + chestSize + " chest in the corner\n");
                // Prompts.Print();
                 (string name, int damage, int defense, string description, bool broken, int value) = Weapons.meleeWeapon[randomKey];
                 chest.weapon = name;
-                //ChestContents(chest.size, chest.weapon, chest.coins, chest.potion);
+                ChestContents(chest.size, chest.weapon, chest.coins, chest.potion);
 
 
         }
